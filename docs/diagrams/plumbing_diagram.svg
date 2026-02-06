@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" font-family="sans-serif">
+  <title>配管経路図 — NFT水耕栽培 循環ループ</title>
+
+  <!-- 背景 -->
+  <rect width="900" height="1100" fill="#FFFFFF"/>
+
+  <!-- ===== タイトル ===== -->
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">配管経路図（循環ループ）</text>
+
+  <!-- ===== defs: マーカー ===== -->
+  <defs>
+    <marker id="arrow-supply" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565C0"/>
+    </marker>
+    <marker id="arrow-drain" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#42A5F5"/>
+    </marker>
+    <marker id="arrow-ph" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#AB47BC"/>
+    </marker>
+    <marker id="arrow-air" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#BDBDBD"/>
+    </marker>
+  </defs>
+
+  <!-- ================================================================ -->
+  <!-- チャンネルA（上段） y=140 -->
+  <!-- ================================================================ -->
+  <rect x="150" y="140" width="600" height="60" rx="6" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="2"/>
+  <text x="450" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">チャンネル A（上段）</text>
+  <text x="450" y="185" text-anchor="middle" font-size="11" fill="#666">NFTチャンネル — 薄い養液膜が流れる</text>
+
+  <!-- 傾斜ラベル + 矢印 -->
+  <line x1="210" y1="175" x2="680" y2="175" stroke="#1565C0" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-supply)"/>
+  <text x="440" y="197" text-anchor="middle" font-size="10" fill="#1565C0">傾斜 2% →</text>
+
+  <!-- 窓側 / 室内側 ラベル -->
+  <text x="155" y="135" font-size="10" fill="#888">← 窓側（高）</text>
+  <text x="670" y="135" font-size="10" fill="#888">室内側（低）→</text>
+
+  <!-- チャンネルA 給水入口（左上） -->
+  <line x1="150" y1="170" x2="100" y2="170" stroke="#1565C0" stroke-width="3"/>
+  <line x1="100" y1="170" x2="100" y2="340" stroke="#1565C0" stroke-width="3"/>
+
+  <!-- チャンネルA 排水出口（右下） -->
+  <line x1="750" y1="170" x2="800" y2="170" stroke="#42A5F5" stroke-width="3"/>
+  <line x1="800" y1="170" x2="800" y2="850" stroke="#42A5F5" stroke-width="3" marker-end="url(#arrow-drain)"/>
+  <text x="812" y="300" font-size="10" fill="#42A5F5" transform="rotate(90,812,300)">排水 10mm</text>
+
+  <!-- ================================================================ -->
+  <!-- チャンネルB（中段） y=280 -->
+  <!-- ================================================================ -->
+  <rect x="150" y="280" width="600" height="60" rx="6" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="2"/>
+  <text x="450" y="305" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">チャンネル B（中段）</text>
+  <text x="450" y="325" text-anchor="middle" font-size="11" fill="#666">NFTチャンネル — 薄い養液膜が流れる</text>
+
+  <!-- 傾斜ラベル + 矢印 -->
+  <line x1="210" y1="315" x2="680" y2="315" stroke="#1565C0" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-supply)"/>
+  <text x="440" y="337" text-anchor="middle" font-size="10" fill="#1565C0">傾斜 2% →</text>
+
+  <!-- チャンネルB 給水入口（左上） -->
+  <line x1="150" y1="310" x2="100" y2="310" stroke="#1565C0" stroke-width="3"/>
+
+  <!-- チャンネルB 排水出口（右下） -->
+  <line x1="750" y1="310" x2="770" y2="310" stroke="#42A5F5" stroke-width="3"/>
+  <line x1="770" y1="310" x2="770" y2="850" stroke="#42A5F5" stroke-width="3" marker-end="url(#arrow-drain)"/>
+  <text x="782" y="500" font-size="10" fill="#42A5F5" transform="rotate(90,782,500)">排水 10mm</text>
+
+  <!-- ================================================================ -->
+  <!-- T字分岐 y=390 -->
+  <!-- ================================================================ -->
+  <!-- 分岐前の垂直ライン（UVから上へ） -->
+  <line x1="100" y1="340" x2="100" y2="390" stroke="#1565C0" stroke-width="3"/>
+
+  <!-- T字分岐ポイント -->
+  <circle cx="100" cy="390" r="6" fill="#1565C0"/>
+  <text x="115" y="395" font-size="11" font-weight="bold" fill="#1565C0">T字分岐</text>
+
+  <!-- 分岐 → チャンネルA（上へ） すでに描画済み -->
+  <!-- 分岐 → チャンネルB（下へ、水平にして左へ入水） -->
+  <line x1="100" y1="390" x2="100" y2="310" stroke="#1565C0" stroke-width="3" marker-end="url(#arrow-supply)"/>
+
+  <!-- ================================================================ -->
+  <!-- バルブ記号（チャンネルA分岐上） -->
+  <!-- ================================================================ -->
+  <!-- バルブA: y=230 付近 -->
+  <polygon points="92,225 108,225 100,240" fill="none" stroke="#1565C0" stroke-width="2"/>
+  <polygon points="92,245 108,245 100,240" fill="none" stroke="#1565C0" stroke-width="2"/>
+  <text x="112" y="240" font-size="9" fill="#1565C0">流量調整</text>
+
+  <!-- バルブB: y=360 付近 -->
+  <polygon points="92,355 108,355 100,370" fill="none" stroke="#1565C0" stroke-width="2"/>
+  <polygon points="92,385 108,385 100,370" fill="none" stroke="#1565C0" stroke-width="2"/>
+  <text x="112" y="375" font-size="9" fill="#1565C0">流量調整</text>
+
+  <!-- 給水ラベル -->
+  <text x="70" y="265" font-size="10" fill="#1565C0" text-anchor="end">給水 6mm</text>
+
+  <!-- ================================================================ -->
+  <!-- UVステライザー y=450〜520 -->
+  <!-- ================================================================ -->
+  <rect x="65" y="450" width="70" height="70" rx="8" fill="#EDE7F6" stroke="#7B1FA2" stroke-width="2.5"/>
+  <text x="100" y="480" text-anchor="middle" font-size="10" font-weight="bold" fill="#7B1FA2">UV-C</text>
+  <text x="100" y="495" text-anchor="middle" font-size="9" fill="#7B1FA2">ステライザー</text>
+  <text x="100" y="510" text-anchor="middle" font-size="8" fill="#7B1FA2">（インライン）</text>
+
+  <!-- ポンプ → UV ライン -->
+  <line x1="100" y1="620" x2="100" y2="520" stroke="#1565C0" stroke-width="3" marker-end="url(#arrow-supply)"/>
+  <!-- UV → 分岐 ライン (上方向) -->
+  <line x1="100" y1="450" x2="100" y2="395" stroke="#1565C0" stroke-width="3" marker-end="url(#arrow-supply)"/>
+
+  <text x="70" y="570" font-size="10" fill="#1565C0" text-anchor="end">給水 6mm</text>
+
+  <!-- ================================================================ -->
+  <!-- リザーバー y=830〜990 -->
+  <!-- ================================================================ -->
+  <rect x="200" y="830" width="500" height="160" rx="10" fill="#E3F2FD" stroke="#9E9E9E" stroke-width="2.5"/>
+  <text x="450" y="860" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">リザーバー</text>
+  <text x="450" y="880" text-anchor="middle" font-size="12" fill="#666">養液 5–8L（不透明・遮光容器）</text>
+
+  <!-- 水面ウェーブ -->
+  <path d="M220,895 Q270,888 320,895 Q370,902 420,895 Q470,888 520,895 Q570,902 620,895 Q670,888 680,895" fill="none" stroke="#42A5F5" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- ================================================================ -->
+  <!-- 水中ポンプ（リザーバー内） -->
+  <!-- ================================================================ -->
+  <rect x="70" y="620" width="60" height="45" rx="5" fill="#E8EAF6" stroke="#1565C0" stroke-width="2"/>
+  <text x="100" y="640" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565C0">水中</text>
+  <text x="100" y="653" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565C0">ポンプ</text>
+
+  <!-- ポンプからリザーバーへの吸入ライン -->
+  <line x1="100" y1="665" x2="100" y2="750" stroke="#1565C0" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="100" y1="750" x2="300" y2="750" stroke="#1565C0" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="300" y1="750" x2="300" y2="830" stroke="#1565C0" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="200" y="743" text-anchor="middle" font-size="9" fill="#1565C0">吸入</text>
+
+  <!-- 排水がリザーバーに戻る -->
+  <line x1="770" y1="850" x2="770" y2="900" stroke="#42A5F5" stroke-width="3"/>
+  <line x1="770" y1="900" x2="700" y2="900" stroke="#42A5F5" stroke-width="3" marker-end="url(#arrow-drain)"/>
+  <line x1="800" y1="850" x2="800" y2="920" stroke="#42A5F5" stroke-width="3"/>
+  <line x1="800" y1="920" x2="700" y2="920" stroke="#42A5F5" stroke-width="3" marker-end="url(#arrow-drain)"/>
+  <text x="740" y="895" font-size="9" fill="#42A5F5">← 排水A戻り</text>
+  <text x="740" y="935" font-size="9" fill="#42A5F5">← 排水B戻り</text>
+
+  <!-- ================================================================ -->
+  <!-- エアポンプ（リザーバー外、右上） -->
+  <!-- ================================================================ -->
+  <rect x="720" y="750" width="80" height="45" rx="5" fill="#F5F5F5" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="760" y="770" text-anchor="middle" font-size="10" font-weight="bold" fill="#757575">エア</text>
+  <text x="760" y="783" text-anchor="middle" font-size="10" font-weight="bold" fill="#757575">ポンプ</text>
+
+  <!-- エアライン: エアポンプ → リザーバー内エアストーン -->
+  <line x1="720" y1="775" x2="620" y2="775" stroke="#BDBDBD" stroke-width="2" stroke-dasharray="6,3"/>
+  <line x1="620" y1="775" x2="620" y2="830" stroke="#BDBDBD" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow-air)"/>
+
+  <!-- エアストーン -->
+  <ellipse cx="620" cy="950" rx="30" ry="10" fill="none" stroke="#BDBDBD" stroke-width="1.5"/>
+  <line x1="620" y1="830" x2="620" y2="940" stroke="#BDBDBD" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="620" y="975" text-anchor="middle" font-size="9" fill="#757575">エアストーン</text>
+
+  <!-- 気泡 -->
+  <circle cx="610" cy="930" r="3" fill="none" stroke="#BDBDBD" stroke-width="1"/>
+  <circle cx="625" cy="920" r="2" fill="none" stroke="#BDBDBD" stroke-width="1"/>
+  <circle cx="615" cy="910" r="2.5" fill="none" stroke="#BDBDBD" stroke-width="1"/>
+
+  <!-- ================================================================ -->
+  <!-- ペリスタルティックポンプ — pH up -->
+  <!-- ================================================================ -->
+  <!-- pH up タンク -->
+  <rect x="220" y="1010" width="70" height="40" rx="5" fill="#F3E5F9" stroke="#AB47BC" stroke-width="1.5"/>
+  <text x="255" y="1030" text-anchor="middle" font-size="9" font-weight="bold" fill="#AB47BC">pH up液</text>
+  <text x="255" y="1042" text-anchor="middle" font-size="8" fill="#AB47BC">タンク</text>
+
+  <!-- ペリスタルティックポンプ pH up -->
+  <circle cx="340" cy="1030" r="16" fill="#F3E5F9" stroke="#AB47BC" stroke-width="2"/>
+  <text x="340" y="1027" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ペリ</text>
+  <text x="340" y="1037" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ポンプ</text>
+
+  <!-- タンク → ポンプ -->
+  <line x1="290" y1="1030" x2="324" y2="1030" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
+  <!-- ポンプ → リザーバー -->
+  <line x1="356" y1="1030" x2="400" y2="1030" stroke="#AB47BC" stroke-width="2"/>
+  <line x1="400" y1="1030" x2="400" y2="990" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
+  <text x="405" y="1015" font-size="8" fill="#AB47BC">投与</text>
+
+  <!-- ================================================================ -->
+  <!-- ペリスタルティックポンプ — pH down -->
+  <!-- ================================================================ -->
+  <!-- pH down タンク -->
+  <rect x="500" y="1010" width="70" height="40" rx="5" fill="#F3E5F9" stroke="#AB47BC" stroke-width="1.5"/>
+  <text x="535" y="1030" text-anchor="middle" font-size="9" font-weight="bold" fill="#AB47BC">pH down液</text>
+  <text x="535" y="1042" text-anchor="middle" font-size="8" fill="#AB47BC">タンク</text>
+
+  <!-- ペリスタルティックポンプ pH down -->
+  <circle cx="470" cy="1030" r="16" fill="#F3E5F9" stroke="#AB47BC" stroke-width="2"/>
+  <text x="470" y="1027" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ペリ</text>
+  <text x="470" y="1037" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ポンプ</text>
+
+  <!-- タンク → ポンプ -->
+  <line x1="500" y1="1030" x2="486" y2="1030" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
+  <!-- ポンプ → リザーバー -->
+  <line x1="454" y1="1030" x2="430" y2="1030" stroke="#AB47BC" stroke-width="2"/>
+  <line x1="430" y1="1030" x2="430" y2="990" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
+  <text x="435" y="1015" font-size="8" fill="#AB47BC">投与</text>
+
+  <!-- ================================================================ -->
+  <!-- 凡例 -->
+  <!-- ================================================================ -->
+  <rect x="340" y="540" width="220" height="160" rx="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1.5" fill-opacity="0.95"/>
+  <text x="450" y="562" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">凡例</text>
+
+  <!-- 給水ライン -->
+  <line x1="355" y1="580" x2="405" y2="580" stroke="#1565C0" stroke-width="3" marker-end="url(#arrow-supply)"/>
+  <text x="420" y="584" font-size="10" fill="#333">給水ライン（加圧）</text>
+
+  <!-- 排水ライン -->
+  <line x1="355" y1="600" x2="405" y2="600" stroke="#42A5F5" stroke-width="3" marker-end="url(#arrow-drain)"/>
+  <text x="420" y="604" font-size="10" fill="#333">排水ライン（重力）</text>
+
+  <!-- pH調整液ライン -->
+  <line x1="355" y1="620" x2="405" y2="620" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
+  <text x="420" y="624" font-size="10" fill="#333">pH調整液ライン</text>
+
+  <!-- エアライン -->
+  <line x1="355" y1="640" x2="405" y2="640" stroke="#BDBDBD" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="420" y="644" font-size="10" fill="#333">エアライン</text>
+
+  <!-- UVステライザー -->
+  <rect x="355" y="655" width="50" height="14" rx="3" fill="#EDE7F6" stroke="#7B1FA2" stroke-width="1.5"/>
+  <text x="420" y="668" font-size="10" fill="#333">UVステライザー</text>
+
+  <!-- 容器・構造物 -->
+  <rect x="355" y="677" width="50" height="14" rx="3" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="1.5"/>
+  <text x="420" y="690" font-size="10" fill="#333">容器・構造物</text>
+
+</svg>

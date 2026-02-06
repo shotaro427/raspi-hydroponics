@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" font-family="sans-serif">
+  <defs>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#2196F3"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="#FFF"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="bold">システム全体配置図（正面図）</text>
+  <text x="400" y="58" text-anchor="middle" font-size="13" fill="#666">ダイソーメタルラック 45×25cm・3段構成</text>
+
+  <!-- Sun -->
+  <text x="250" y="90" text-anchor="middle" font-size="16" fill="#FF9800">☀ 窓からの自然光</text>
+  <line x1="170" y1="98" x2="185" y2="120" stroke="#FFB74D" stroke-width="1.5" stroke-dasharray="4"/>
+  <line x1="230" y1="98" x2="238" y2="120" stroke="#FFB74D" stroke-width="1.5" stroke-dasharray="4"/>
+  <line x1="290" y1="98" x2="290" y2="120" stroke="#FFB74D" stroke-width="1.5" stroke-dasharray="4"/>
+  <line x1="350" y1="98" x2="342" y2="120" stroke="#FFB74D" stroke-width="1.5" stroke-dasharray="4"/>
+
+  <!-- Side labels -->
+  <text x="140" y="148" font-size="11" fill="#888">← 窓側</text>
+  <text x="480" y="148" font-size="11" fill="#888">室内側 →</text>
+
+  <!-- ================================ -->
+  <!-- RACK STRUCTURE (grey #9E9E9E)    -->
+  <!-- ================================ -->
+  <rect x="130" y="160" width="8" height="690" fill="#9E9E9E" rx="2"/>
+  <rect x="535" y="160" width="8" height="690" fill="#9E9E9E" rx="2"/>
+  <rect x="126" y="208" width="421" height="6" fill="#9E9E9E" rx="1"/>
+  <rect x="126" y="385" width="421" height="6" fill="#9E9E9E" rx="1"/>
+  <rect x="126" y="595" width="421" height="6" fill="#9E9E9E" rx="1"/>
+  <!-- Casters -->
+  <circle cx="142" cy="858" r="8" fill="none" stroke="#9E9E9E" stroke-width="2"/>
+  <circle cx="535" cy="858" r="8" fill="none" stroke="#9E9E9E" stroke-width="2"/>
+  <line x1="100" y1="866" x2="575" y2="866" stroke="#BDBDBD" stroke-width="1"/>
+
+  <!-- ================================ -->
+  <!-- CHANNEL A — Upper tier (on top shelf) -->
+  <!-- ================================ -->
+  <!-- Container -->
+  <rect x="145" y="190" width="383" height="16" fill="#616161" rx="2"/>
+  <!-- Lid (black pladdan) -->
+  <rect x="145" y="184" width="383" height="8" fill="#424242" rx="1"/>
+  <text x="336" y="202" text-anchor="middle" font-size="9" fill="#EEE">NFTチャンネルA</text>
+
+  <!-- Plants Channel A -->
+  <g fill="#8BC34A" stroke="#689F38" stroke-width="1.2">
+    <!-- Plant 1 -->
+    <line x1="190" y1="183" x2="190" y2="138" stroke="#689F38"/>
+    <ellipse cx="182" cy="162" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(-20,182,162)"/>
+    <ellipse cx="198" cy="148" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(20,198,148)"/>
+    <!-- Plant 2 -->
+    <line x1="258" y1="183" x2="258" y2="135" stroke="#689F38"/>
+    <ellipse cx="250" cy="160" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(-18,250,160)"/>
+    <ellipse cx="266" cy="146" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(22,266,146)"/>
+    <ellipse cx="254" cy="138" rx="7" ry="3" fill="#8BC34A" stroke="none" transform="rotate(-10,254,138)"/>
+    <!-- Plant 3 -->
+    <line x1="326" y1="183" x2="326" y2="140" stroke="#689F38"/>
+    <ellipse cx="318" cy="163" rx="7" ry="4" fill="#8BC34A" stroke="none" transform="rotate(-22,318,163)"/>
+    <ellipse cx="334" cy="150" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(18,334,150)"/>
+    <!-- Plant 4 -->
+    <line x1="394" y1="183" x2="394" y2="132" stroke="#689F38"/>
+    <ellipse cx="386" cy="158" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(-20,386,158)"/>
+    <ellipse cx="402" cy="145" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(25,402,145)"/>
+    <ellipse cx="390" cy="136" rx="7" ry="3" fill="#8BC34A" stroke="none" transform="rotate(-12,390,136)"/>
+    <!-- Plant 5 -->
+    <line x1="462" y1="183" x2="462" y2="140" stroke="#689F38"/>
+    <ellipse cx="454" cy="162" rx="7" ry="4" fill="#8BC34A" stroke="none" transform="rotate(-18,454,162)"/>
+    <ellipse cx="470" cy="150" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(20,470,150)"/>
+    <!-- Plant 6 -->
+    <line x1="530" y1="183" x2="530" y2="136" stroke="#689F38"/>
+    <ellipse cx="522" cy="160" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(-22,522,160)"/>
+    <ellipse cx="538" cy="147" rx="8" ry="4" fill="#8BC34A" stroke="none" transform="rotate(20,538,147)"/>
+    <ellipse cx="526" cy="139" rx="7" ry="3" fill="#8BC34A" stroke="none" transform="rotate(-8,526,139)"/>
+  </g>
+  <!-- Plant labels A -->
+  <g font-size="8" fill="#666" text-anchor="middle">
+    <text x="190" y="128">レタス</text>
+    <text x="258" y="128">シソ</text>
+    <text x="326" y="128">パセリ</text>
+    <text x="394" y="128">ルッコラ</text>
+    <text x="462" y="128">シソ</text>
+    <text x="530" y="128">レタス</text>
+  </g>
+
+  <!-- ================================ -->
+  <!-- CHANNEL B — Middle tier (on mid shelf) -->
+  <!-- ================================ -->
+  <rect x="145" y="367" width="383" height="16" fill="#616161" rx="2"/>
+  <rect x="145" y="361" width="383" height="8" fill="#424242" rx="1"/>
+  <text x="336" y="379" text-anchor="middle" font-size="9" fill="#EEE">NFTチャンネルB</text>
+
+  <!-- Plants Channel B -->
+  <g fill="#8BC34A">
+    <line x1="190" y1="360" x2="190" y2="315" stroke="#689F38" stroke-width="1.2"/>
+    <ellipse cx="182" cy="340" rx="8" ry="4" transform="rotate(-20,182,340)"/>
+    <ellipse cx="198" cy="325" rx="8" ry="4" transform="rotate(20,198,325)"/>
+
+    <line x1="258" y1="360" x2="258" y2="310" stroke="#689F38" stroke-width="1.2"/>
+    <ellipse cx="250" cy="338" rx="8" ry="4" transform="rotate(-18,250,338)"/>
+    <ellipse cx="266" cy="322" rx="8" ry="4" transform="rotate(22,266,322)"/>
+    <ellipse cx="254" cy="314" rx="7" ry="3" transform="rotate(-10,254,314)"/>
+
+    <line x1="326" y1="360" x2="326" y2="318" stroke="#689F38" stroke-width="1.2"/>
+    <ellipse cx="318" cy="340" rx="7" ry="4" transform="rotate(-22,318,340)"/>
+    <ellipse cx="334" cy="328" rx="8" ry="4" transform="rotate(18,334,328)"/>
+
+    <line x1="394" y1="360" x2="394" y2="308" stroke="#689F38" stroke-width="1.2"/>
+    <ellipse cx="386" cy="335" rx="8" ry="4" transform="rotate(-20,386,335)"/>
+    <ellipse cx="402" cy="322" rx="8" ry="4" transform="rotate(25,402,322)"/>
+    <ellipse cx="390" cy="312" rx="7" ry="3" transform="rotate(-12,390,312)"/>
+
+    <line x1="462" y1="360" x2="462" y2="318" stroke="#689F38" stroke-width="1.2"/>
+    <ellipse cx="454" cy="340" rx="7" ry="4" transform="rotate(-18,454,340)"/>
+    <ellipse cx="470" cy="326" rx="8" ry="4" transform="rotate(20,470,326)"/>
+
+    <line x1="530" y1="360" x2="530" y2="312" stroke="#689F38" stroke-width="1.2"/>
+    <ellipse cx="522" cy="338" rx="8" ry="4" transform="rotate(-22,522,338)"/>
+    <ellipse cx="538" cy="324" rx="8" ry="4" transform="rotate(20,538,324)"/>
+    <ellipse cx="526" cy="315" rx="7" ry="3" transform="rotate(-8,526,315)"/>
+  </g>
+  <g font-size="8" fill="#666" text-anchor="middle">
+    <text x="190" y="305">バジル</text>
+    <text x="258" y="305">ミント</text>
+    <text x="326" y="305">バジル</text>
+    <text x="394" y="305">ミント</text>
+    <text x="462" y="305">バジル</text>
+    <text x="530" y="305">ミント</text>
+  </g>
+
+  <!-- ================================ -->
+  <!-- LOWER TIER — Reservoir + Electronics -->
+  <!-- ================================ -->
+  <!-- Reservoir (window side) -->
+  <rect x="145" y="478" width="180" height="115" fill="#455A64" rx="3" stroke="#37474F" stroke-width="1.5"/>
+  <text x="235" y="496" text-anchor="middle" font-size="10" fill="#FFF" font-weight="bold">リザーバー</text>
+  <text x="235" y="510" text-anchor="middle" font-size="8" fill="#B0BEC5">（養液タンク）</text>
+  <!-- Water level wave -->
+  <path d="M152,520 Q170,515 188,520 Q206,525 224,520 Q242,515 260,520 Q278,525 296,520 Q314,515 320,520" fill="none" stroke="#64B5F6" stroke-width="1" opacity="0.7"/>
+
+  <!-- Components inside reservoir -->
+  <rect x="155" y="555" width="45" height="18" fill="#1976D2" rx="2" opacity="0.8"/>
+  <text x="177" y="567" text-anchor="middle" font-size="7" fill="#FFF">ポンプ</text>
+  <rect x="210" y="555" width="50" height="18" fill="#388E3C" rx="2" opacity="0.8"/>
+  <text x="235" y="567" text-anchor="middle" font-size="7" fill="#FFF">ECセンサー</text>
+  <rect x="270" y="555" width="48" height="18" fill="#388E3C" rx="2" opacity="0.8"/>
+  <text x="294" y="567" text-anchor="middle" font-size="7" fill="#FFF">DS18B20</text>
+  <rect x="155" y="530" width="55" height="16" fill="#388E3C" rx="2" opacity="0.8"/>
+  <text x="182" y="542" text-anchor="middle" font-size="7" fill="#FFF">フロートSW</text>
+
+  <!-- Divider (waterproof separator) -->
+  <line x1="338" y1="475" x2="338" y2="593" stroke="#FF5722" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="338" y="468" text-anchor="middle" font-size="8" fill="#FF5722">防水仕切り</text>
+
+  <!-- Electronics (room side) -->
+  <rect x="355" y="490" width="140" height="35" fill="#2E7D32" rx="3" stroke="#1B5E20" stroke-width="1"/>
+  <text x="425" y="505" text-anchor="middle" font-size="8" fill="#FFF" font-weight="bold">Pi 4</text>
+  <text x="425" y="517" text-anchor="middle" font-size="7" fill="#C8E6C9">制御 + サーバー</text>
+
+  <rect x="365" y="548" width="125" height="22" fill="#FFF" rx="3" stroke="#FF5722" stroke-width="1.5"/>
+  <text x="427" y="563" text-anchor="middle" font-size="8" fill="#FF5722">電源タップ</text>
+
+  <!-- Electrical lines (red, dashed) -->
+  <line x1="427" y1="548" x2="425" y2="525" stroke="#FF5722" stroke-width="1.5" stroke-dasharray="4"/>
+
+  <!-- Sensor lines (green, dashed) from reservoir sensors to Pi 4 -->
+  <line x1="260" y1="555" x2="260" y2="545" stroke="#4CAF50" stroke-width="1.5" stroke-dasharray="3"/>
+  <line x1="260" y1="545" x2="425" y2="510" stroke="#4CAF50" stroke-width="1.5" stroke-dasharray="3"/>
+  <line x1="210" y1="555" x2="210" y2="540" stroke="#4CAF50" stroke-width="1.5" stroke-dasharray="3"/>
+  <line x1="210" y1="540" x2="425" y2="505" stroke="#4CAF50" stroke-width="1.5" stroke-dasharray="3"/>
+
+  <!-- ================================ -->
+  <!-- SUPPLY TUBING (blue, upward)     -->
+  <!-- ================================ -->
+  <g fill="none" stroke="#2196F3" stroke-width="3">
+    <!-- From pump out of reservoir -->
+    <line x1="160" y1="555" x2="160" y2="475"/>
+    <line x1="160" y1="475" x2="105" y2="475"/>
+    <!-- Main vertical supply (up) -->
+    <line x1="105" y1="475" x2="105" y2="192" marker-end="url(#arrBlue)"/>
+    <!-- Into Channel A (left/window side) -->
+    <line x1="105" y1="192" x2="145" y2="192"/>
+    <!-- Branch to Channel B -->
+    <line x1="105" y1="370" x2="145" y2="370"/>
+  </g>
+  <!-- T-junction dot -->
+  <circle cx="105" cy="370" r="5" fill="#2196F3"/>
+  <!-- Supply label -->
+  <text x="88" y="340" text-anchor="middle" font-size="9" fill="#2196F3" transform="rotate(-90,88,340)">給水 6mm ↑</text>
+
+  <!-- ================================ -->
+  <!-- DRAIN TUBING (blue, downward)    -->
+  <!-- ================================ -->
+  <g fill="none" stroke="#2196F3" stroke-width="3">
+    <!-- Channel A drain (right/room side) -->
+    <line x1="528" y1="192" x2="558" y2="192"/>
+    <!-- Main vertical drain (down) -->
+    <line x1="558" y1="192" x2="558" y2="478" marker-end="url(#arrBlue)"/>
+    <!-- Channel B drain joins -->
+    <line x1="528" y1="370" x2="558" y2="370"/>
+    <!-- Return to reservoir -->
+    <line x1="558" y1="478" x2="325" y2="478" marker-end="url(#arrBlue)"/>
+  </g>
+  <!-- T-junction dot -->
+  <circle cx="558" cy="370" r="5" fill="#2196F3"/>
+  <!-- Drain label -->
+  <text x="575" y="340" text-anchor="middle" font-size="9" fill="#2196F3" transform="rotate(90,575,340)">排水 10mm ↓</text>
+
+  <!-- ================================ -->
+  <!-- DIMENSION LABELS (left side)     -->
+  <!-- ================================ -->
+  <g font-size="11" fill="#757575">
+    <line x1="80" y1="211" x2="80" y2="866" stroke="#BDBDBD" stroke-width="0.5"/>
+    <!-- 90cm -->
+    <line x1="75" y1="211" x2="126" y2="211" stroke="#BDBDBD" stroke-width="0.5" stroke-dasharray="3"/>
+    <text x="72" y="215" text-anchor="end" font-weight="bold">90cm</text>
+    <!-- 65cm -->
+    <line x1="75" y1="388" x2="126" y2="388" stroke="#BDBDBD" stroke-width="0.5" stroke-dasharray="3"/>
+    <text x="72" y="392" text-anchor="end" font-weight="bold">65cm</text>
+    <!-- 35cm -->
+    <line x1="75" y1="598" x2="126" y2="598" stroke="#BDBDBD" stroke-width="0.5" stroke-dasharray="3"/>
+    <text x="72" y="602" text-anchor="end" font-weight="bold">35cm</text>
+    <!-- 0cm -->
+    <line x1="75" y1="866" x2="100" y2="866" stroke="#BDBDBD" stroke-width="0.5" stroke-dasharray="3"/>
+    <text x="72" y="870" text-anchor="end">0cm</text>
+  </g>
+  <!-- Shelf size -->
+  <text x="336" y="890" text-anchor="middle" font-size="10" fill="#999">棚板: 45×25cm</text>
+
+  <!-- ================================ -->
+  <!-- LEGEND (right side)              -->
+  <!-- ================================ -->
+  <g transform="translate(610,120)">
+    <text x="0" y="0" font-size="13" font-weight="bold" fill="#333">凡例</text>
+    <rect x="-5" y="10" width="175" height="155" fill="none" stroke="#E0E0E0" rx="5"/>
+    <!-- Water -->
+    <line x1="10" y1="35" x2="40" y2="35" stroke="#2196F3" stroke-width="3"/>
+    <text x="50" y="39" font-size="10" fill="#333">水系（チューブ・ポンプ）</text>
+    <!-- Electrical -->
+    <line x1="10" y1="60" x2="40" y2="60" stroke="#FF5722" stroke-width="2" stroke-dasharray="5"/>
+    <text x="50" y="64" font-size="10" fill="#333">電気系（電源・GPIO）</text>
+    <!-- Sensor -->
+    <line x1="10" y1="85" x2="40" y2="85" stroke="#4CAF50" stroke-width="2" stroke-dasharray="3"/>
+    <text x="50" y="89" font-size="10" fill="#333">センサー線</text>
+    <!-- Structure -->
+    <rect x="10" y="103" width="30" height="10" fill="#9E9E9E" rx="2"/>
+    <text x="50" y="113" font-size="10" fill="#333">構造物（ラック・容器）</text>
+    <!-- Plants -->
+    <ellipse cx="25" cy="135" rx="12" ry="6" fill="#8BC34A"/>
+    <text x="50" y="139" font-size="10" fill="#333">植物</text>
+  </g>
+
+  <!-- Tier annotations (right side) -->
+  <g font-size="10" fill="#555">
+    <text x="612" y="320" font-weight="bold">【上段】</text>
+    <text x="612" y="335">NFTチャンネルA</text>
+    <text x="612" y="410" font-weight="bold">【中段】</text>
+    <text x="612" y="425">NFTチャンネルB</text>
+    <text x="612" y="540" font-weight="bold">【下段】</text>
+    <text x="612" y="555">リザーバー +</text>
+    <text x="612" y="570">電子機器</text>
+  </g>
+
+</svg>
