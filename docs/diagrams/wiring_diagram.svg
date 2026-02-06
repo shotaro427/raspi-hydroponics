@@ -169,19 +169,20 @@
     <polyline points="462,179 370,179 370,192 250,192" fill="none" stroke="#212121" stroke-width="2"/>
   </g>
 
-  <!-- ADS1115 ADC -->
-  <g id="ads1115">
-    <rect x="30" y="240" width="220" height="140" rx="6" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
+  <!-- ADS1115 ADC (Phase 5: オプション) -->
+  <g id="ads1115" opacity="0.5">
+    <rect x="30" y="240" width="220" height="140" rx="6" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5" stroke-dasharray="6,3"/>
     <text x="140" y="258" text-anchor="middle" font-size="11" font-weight="bold" fill="#E65100">ADS1115</text>
     <text x="140" y="272" text-anchor="middle" font-size="9" fill="#FF9800">16bit ADC モジュール</text>
+    <text x="140" y="286" text-anchor="middle" font-size="8" fill="#9E9E9E">【Phase 5: オプション】</text>
     <!-- Right side pins (from Pi) -->
-    <text x="240" y="292" text-anchor="end" font-size="8" fill="#F44336">VDD (3.3V) ●</text>
-    <text x="240" y="308" text-anchor="end" font-size="8" fill="#FF9800">SDA ●</text>
-    <text x="240" y="324" text-anchor="end" font-size="8" fill="#FF9800">SCL ●</text>
-    <text x="240" y="340" text-anchor="end" font-size="8" fill="#212121">GND ●</text>
+    <text x="240" y="304" text-anchor="end" font-size="8" fill="#F44336">VDD (3.3V) ●</text>
+    <text x="240" y="320" text-anchor="end" font-size="8" fill="#FF9800">SDA ●</text>
+    <text x="240" y="336" text-anchor="end" font-size="8" fill="#FF9800">SCL ●</text>
+    <text x="240" y="352" text-anchor="end" font-size="8" fill="#212121">GND ●</text>
     <!-- Left side pins (to sensors) -->
-    <text x="40" y="308" font-size="8" fill="#4CAF50">● A0 → pH</text>
-    <text x="40" y="328" font-size="8" fill="#4CAF50">● A1 → EC</text>
+    <text x="40" y="320" font-size="8" fill="#4CAF50">● A0 → pH</text>
+    <text x="40" y="340" font-size="8" fill="#4CAF50">● A1 → EC</text>
   </g>
 
   <!-- ADS1115 Wires -->
@@ -196,22 +197,24 @@
     <polyline points="370,192 370,337 250,337" fill="none" stroke="#212121" stroke-width="1.5" stroke-dasharray="4,2"/>
   </g>
 
-  <!-- pH Sensor -->
-  <g id="ph-sensor">
-    <rect x="30" y="400" width="200" height="38" rx="4" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1"/>
-    <text x="130" y="416" text-anchor="middle" font-size="9" font-weight="bold" fill="#2E7D32">pH センサー</text>
-    <text x="130" y="430" text-anchor="middle" font-size="7" fill="#4CAF50">DFRobot SEN0161-V2</text>
+  <!-- pH Sensor (Phase 5: オプション) -->
+  <g id="ph-sensor" opacity="0.5">
+    <rect x="30" y="400" width="200" height="38" rx="4" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="130" y="412" text-anchor="middle" font-size="9" font-weight="bold" fill="#2E7D32">pH センサー</text>
+    <text x="130" y="424" text-anchor="middle" font-size="7" fill="#4CAF50">DFRobot SEN0161-V2</text>
+    <text x="130" y="436" text-anchor="middle" font-size="6" fill="#9E9E9E">【Phase 5: オプション】</text>
     <!-- Wire from ADS1115 A0 -->
-    <polyline points="40,308 20,308 20,419 30,419" fill="none" stroke="#4CAF50" stroke-width="1.5"/>
+    <polyline points="40,320 20,320 20,419 30,419" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-dasharray="4,2"/>
   </g>
 
-  <!-- EC Sensor -->
-  <g id="ec-sensor">
-    <rect x="30" y="450" width="200" height="38" rx="4" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1"/>
-    <text x="130" y="466" text-anchor="middle" font-size="9" font-weight="bold" fill="#2E7D32">EC センサー</text>
-    <text x="130" y="480" text-anchor="middle" font-size="7" fill="#4CAF50">DFRobot SEN0244</text>
+  <!-- EC Sensor (Phase 5: オプション) -->
+  <g id="ec-sensor" opacity="0.5">
+    <rect x="30" y="450" width="200" height="38" rx="4" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="130" y="462" text-anchor="middle" font-size="9" font-weight="bold" fill="#2E7D32">EC センサー</text>
+    <text x="130" y="474" text-anchor="middle" font-size="7" fill="#4CAF50">DFRobot SEN0244</text>
+    <text x="130" y="486" text-anchor="middle" font-size="6" fill="#9E9E9E">【Phase 5: オプション】</text>
     <!-- Wire from ADS1115 A1 -->
-    <polyline points="40,328 10,328 10,469 30,469" fill="none" stroke="#4CAF50" stroke-width="1.5"/>
+    <polyline points="40,340 10,340 10,469 30,469" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-dasharray="4,2"/>
   </g>
 
   <!-- Float Switch 水位センサー -->
@@ -346,17 +349,17 @@
     <polyline points="680,293 680,495 700,495" fill="none" stroke="#212121" stroke-width="1" stroke-dasharray="3,2"/>
   </g>
 
-  <!-- Peristaltic Pumps -->
-  <g id="peristaltic-pumps">
-    <rect x="960" y="390" width="170" height="30" rx="4" fill="#FBE9E7" stroke="#FF5722" stroke-width="1"/>
-    <text x="1045" y="410" text-anchor="middle" font-size="9" font-weight="bold" fill="#BF360C">ペリスタルティック #1</text>
-    <text x="1045" y="420" text-anchor="middle" font-size="7" fill="#FF5722">pH調整液</text>
-    <line x1="930" y1="405" x2="960" y2="405" stroke="#FF5722" stroke-width="2"/>
+  <!-- Peristaltic Pumps (Phase 5: オプション) -->
+  <g id="peristaltic-pumps" opacity="0.5">
+    <rect x="960" y="390" width="170" height="30" rx="4" fill="#FBE9E7" stroke="#FF5722" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="1045" y="405" text-anchor="middle" font-size="9" font-weight="bold" fill="#BF360C">ペリスタルティック #1</text>
+    <text x="1045" y="417" text-anchor="middle" font-size="7" fill="#FF5722">pH調整液【Phase 5: オプション】</text>
+    <line x1="930" y1="405" x2="960" y2="405" stroke="#FF5722" stroke-width="2" stroke-dasharray="4,2"/>
 
-    <rect x="960" y="430" width="170" height="30" rx="4" fill="#FBE9E7" stroke="#FF5722" stroke-width="1"/>
-    <text x="1045" y="450" text-anchor="middle" font-size="9" font-weight="bold" fill="#BF360C">ペリスタルティック #2</text>
-    <text x="1045" y="460" text-anchor="middle" font-size="7" fill="#FF5722">栄養液</text>
-    <line x1="930" y1="437" x2="960" y2="445" stroke="#FF5722" stroke-width="2"/>
+    <rect x="960" y="430" width="170" height="30" rx="4" fill="#FBE9E7" stroke="#FF5722" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="1045" y="445" text-anchor="middle" font-size="9" font-weight="bold" fill="#BF360C">ペリスタルティック #2</text>
+    <text x="1045" y="457" text-anchor="middle" font-size="7" fill="#FF5722">栄養液【Phase 5: オプション】</text>
+    <line x1="930" y1="437" x2="960" y2="445" stroke="#FF5722" stroke-width="2" stroke-dasharray="4,2"/>
   </g>
 
   <!-- ================================================ -->

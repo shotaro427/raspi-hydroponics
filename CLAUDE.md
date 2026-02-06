@@ -8,6 +8,7 @@ Raspberry Pi 4 Model B を使った家庭用ハーブ水耕栽培の自動化シ
 - **設置場所**: 寝室の窓際、3段金網ラック（ダイソーメタルラック）
 - **材料方針**: ラズパイ・センサー・ポンプ以外は百均（ダイソー等）で調達
 - **開発方針**: フルスクラッチで開発する（Mycodo等の既存OSSは利用しない）
+- **フェーズ構成**: Phase 1〜4で基本システム完成。Phase 5（pH自動調整）はオプション
 
 ## アーキテクチャ
 Raspberry Pi 4 Model B 1台で全機能を担当:
@@ -26,7 +27,7 @@ raspi-hydroponics/
 │   ├── BOM.md
 │   ├── DAISO_MATERIALS.md
 │   ├── RACK_SETUP.md
-│   ├── phases/               # フェーズ別実行計画書
+│   ├── phases/               # フェーズ別実行計画書（PHASE1〜4 + オプションPHASE5）
 │   ├── diagrams/             # SVG設計図
 │   └── REFERENCES.md
 ├── controller/                # センサー読取・ポンプ制御（Python）
@@ -57,6 +58,7 @@ raspi-hydroponics/
 | [docs/DAISO_MATERIALS.md](./docs/DAISO_MATERIALS.md) | 百均材料リスト・DIY手順 | 材料調達・物理構造製作時 |
 | [docs/RACK_SETUP.md](./docs/RACK_SETUP.md) | 3段ラック設置図・組立手順・配線図 | 設置・組立時 |
 | [docs/phases/](./docs/phases/) | フェーズ別実行計画書（PHASE1〜4） | 各フェーズ着手時 |
+| [docs/phases/PHASE5_PLAN.md](./docs/phases/PHASE5_PLAN.md) | Phase 5: pH自動調整（オプション） | pH自動化が必要な場合 |
 | [docs/diagrams/](./docs/diagrams/) | SVG設計図（配置図・配線図・配管図） | 物理設計・配線確認時 |
 | [docs/REFERENCES.md](./docs/REFERENCES.md) | 先行事例・参考リンク集 | 調査・比較検討時 |
 

@@ -164,44 +164,51 @@
   <circle cx="615" cy="910" r="2.5" fill="none" stroke="#BDBDBD" stroke-width="1"/>
 
   <!-- ================================================================ -->
-  <!-- ペリスタルティックポンプ — pH up -->
+  <!-- ペリスタルティックポンプ — pH up 【Phase 5: オプション】 -->
   <!-- ================================================================ -->
-  <!-- pH up タンク -->
-  <rect x="220" y="1010" width="70" height="40" rx="5" fill="#F3E5F9" stroke="#AB47BC" stroke-width="1.5"/>
-  <text x="255" y="1030" text-anchor="middle" font-size="9" font-weight="bold" fill="#AB47BC">pH up液</text>
-  <text x="255" y="1042" text-anchor="middle" font-size="8" fill="#AB47BC">タンク</text>
+  <g id="ph-up-system" opacity="0.5">
+    <!-- pH up タンク -->
+    <rect x="220" y="1010" width="70" height="40" rx="5" fill="#F3E5F9" stroke="#AB47BC" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="255" y="1030" text-anchor="middle" font-size="9" font-weight="bold" fill="#AB47BC">pH up液</text>
+    <text x="255" y="1042" text-anchor="middle" font-size="8" fill="#AB47BC">タンク</text>
 
-  <!-- ペリスタルティックポンプ pH up -->
-  <circle cx="340" cy="1030" r="16" fill="#F3E5F9" stroke="#AB47BC" stroke-width="2"/>
-  <text x="340" y="1027" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ペリ</text>
-  <text x="340" y="1037" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ポンプ</text>
+    <!-- ペリスタルティックポンプ pH up -->
+    <circle cx="340" cy="1030" r="16" fill="#F3E5F9" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="340" y="1027" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ペリ</text>
+    <text x="340" y="1037" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ポンプ</text>
 
-  <!-- タンク → ポンプ -->
-  <line x1="290" y1="1030" x2="324" y2="1030" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
-  <!-- ポンプ → リザーバー -->
-  <line x1="356" y1="1030" x2="400" y2="1030" stroke="#AB47BC" stroke-width="2"/>
-  <line x1="400" y1="1030" x2="400" y2="990" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
-  <text x="405" y="1015" font-size="8" fill="#AB47BC">投与</text>
+    <!-- タンク → ポンプ -->
+    <line x1="290" y1="1030" x2="324" y2="1030" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrow-ph)"/>
+    <!-- ポンプ → リザーバー -->
+    <line x1="356" y1="1030" x2="400" y2="1030" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2"/>
+    <line x1="400" y1="1030" x2="400" y2="990" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrow-ph)"/>
+    <text x="405" y="1015" font-size="8" fill="#AB47BC">投与</text>
+  </g>
 
   <!-- ================================================================ -->
-  <!-- ペリスタルティックポンプ — pH down -->
+  <!-- ペリスタルティックポンプ — pH down 【Phase 5: オプション】 -->
   <!-- ================================================================ -->
-  <!-- pH down タンク -->
-  <rect x="500" y="1010" width="70" height="40" rx="5" fill="#F3E5F9" stroke="#AB47BC" stroke-width="1.5"/>
-  <text x="535" y="1030" text-anchor="middle" font-size="9" font-weight="bold" fill="#AB47BC">pH down液</text>
-  <text x="535" y="1042" text-anchor="middle" font-size="8" fill="#AB47BC">タンク</text>
+  <g id="ph-down-system" opacity="0.5">
+    <!-- pH down タンク -->
+    <rect x="500" y="1010" width="70" height="40" rx="5" fill="#F3E5F9" stroke="#AB47BC" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="535" y="1030" text-anchor="middle" font-size="9" font-weight="bold" fill="#AB47BC">pH down液</text>
+    <text x="535" y="1042" text-anchor="middle" font-size="8" fill="#AB47BC">タンク</text>
 
-  <!-- ペリスタルティックポンプ pH down -->
-  <circle cx="470" cy="1030" r="16" fill="#F3E5F9" stroke="#AB47BC" stroke-width="2"/>
-  <text x="470" y="1027" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ペリ</text>
-  <text x="470" y="1037" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ポンプ</text>
+    <!-- ペリスタルティックポンプ pH down -->
+    <circle cx="470" cy="1030" r="16" fill="#F3E5F9" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="470" y="1027" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ペリ</text>
+    <text x="470" y="1037" text-anchor="middle" font-size="7" font-weight="bold" fill="#AB47BC">ポンプ</text>
 
-  <!-- タンク → ポンプ -->
-  <line x1="500" y1="1030" x2="486" y2="1030" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
-  <!-- ポンプ → リザーバー -->
-  <line x1="454" y1="1030" x2="430" y2="1030" stroke="#AB47BC" stroke-width="2"/>
-  <line x1="430" y1="1030" x2="430" y2="990" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
-  <text x="435" y="1015" font-size="8" fill="#AB47BC">投与</text>
+    <!-- タンク → ポンプ -->
+    <line x1="500" y1="1030" x2="486" y2="1030" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrow-ph)"/>
+    <!-- ポンプ → リザーバー -->
+    <line x1="454" y1="1030" x2="430" y2="1030" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2"/>
+    <line x1="430" y1="1030" x2="430" y2="990" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrow-ph)"/>
+    <text x="435" y="1015" font-size="8" fill="#AB47BC">投与</text>
+  </g>
+
+  <!-- Phase 5 オプション注記 -->
+  <text x="380" y="1075" text-anchor="middle" font-size="10" fill="#9E9E9E">※ pH調整システムは Phase 5（オプション）</text>
 
   <!-- ================================================================ -->
   <!-- 凡例 -->
@@ -218,8 +225,8 @@
   <text x="420" y="604" font-size="10" fill="#333">排水ライン（重力）</text>
 
   <!-- pH調整液ライン -->
-  <line x1="355" y1="620" x2="405" y2="620" stroke="#AB47BC" stroke-width="2" marker-end="url(#arrow-ph)"/>
-  <text x="420" y="624" font-size="10" fill="#333">pH調整液ライン</text>
+  <line x1="355" y1="620" x2="405" y2="620" stroke="#AB47BC" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrow-ph)"/>
+  <text x="420" y="624" font-size="10" fill="#333">pH調整液ライン【Phase 5】</text>
 
   <!-- エアライン -->
   <line x1="355" y1="640" x2="405" y2="640" stroke="#BDBDBD" stroke-width="2" stroke-dasharray="6,3"/>

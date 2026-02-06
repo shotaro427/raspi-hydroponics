@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="sans-serif">
+  <defs>
+    <!-- Arrow markers -->
+    <marker id="arrowR" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F44336"/></marker>
+    <marker id="arrowK" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#212121"/></marker>
+    <marker id="arrowB" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2196F3"/></marker>
+    <marker id="arrowO" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FF9800"/></marker>
+    <marker id="arrowP" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9C27B0"/></marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="700" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">Phase 5: pH自動調整（オプション）</text>
+  <text x="700" y="52" text-anchor="middle" font-size="12" fill="#888">Raspberry Pi 4 Model B — ADS1115 + PH-4502C + ペリスタルティックポンプ</text>
+
+  <!-- Optional notice -->
+  <rect x="500" y="62" width="400" height="28" rx="4" fill="#FFF3E0" stroke="#FF9800" stroke-width="1"/>
+  <text x="700" y="82" text-anchor="middle" font-size="11" fill="#E65100" font-weight="bold">⚠️ このフェーズはオプションです — pH手動調整でも可</text>
+
+  <!-- ================================================ -->
+  <!--  BREADBOARD (Left-Center)                        -->
+  <!-- ================================================ -->
+  <g id="breadboard">
+    <rect x="60" y="130" width="480" height="340" rx="8" fill="#F5F5DC" stroke="#8B8B7A" stroke-width="2"/>
+    <text x="300" y="155" text-anchor="middle" font-size="12" font-weight="bold" fill="#555">ブレッドボード</text>
+
+    <!-- Power rails top -->
+    <rect x="80" y="170" width="440" height="26" rx="4" fill="#FFEBEE" stroke="#F44336" stroke-width="1"/>
+    <text x="90" y="187" font-size="9" fill="#F44336" font-weight="bold">+ (3.3V/5V)</text>
+    <rect x="80" y="200" width="440" height="26" rx="4" fill="#ECEFF1" stroke="#212121" stroke-width="1"/>
+    <text x="90" y="217" font-size="9" fill="#212121" font-weight="bold">- (GND)</text>
+
+    <!-- Main breadboard area -->
+    <rect x="80" y="235" width="440" height="220" rx="4" fill="#FFF8E1" stroke="#8B8B7A" stroke-width="1"/>
+
+    <!-- Column labels -->
+    <text x="120" y="253" font-size="8" fill="#666">a  b  c  d  e     f  g  h  i  j</text>
+
+    <!-- Row labels -->
+    <g fill="#888" font-size="7">
+      <text x="85" y="275">1</text>
+      <text x="85" y="300">5</text>
+      <text x="85" y="325">10</text>
+      <text x="85" y="350">15</text>
+      <text x="85" y="375">20</text>
+      <text x="85" y="400">25</text>
+      <text x="85" y="425">30</text>
+    </g>
+
+    <!-- Hole grid (representative) -->
+    <g fill="#333">
+      <circle cx="120" cy="270" r="2"/><circle cx="135" cy="270" r="2"/><circle cx="150" cy="270" r="2"/><circle cx="165" cy="270" r="2"/><circle cx="180" cy="270" r="2"/>
+      <circle cx="210" cy="270" r="2"/><circle cx="225" cy="270" r="2"/><circle cx="240" cy="270" r="2"/><circle cx="255" cy="270" r="2"/><circle cx="270" cy="270" r="2"/>
+      <circle cx="120" cy="295" r="2"/><circle cx="135" cy="295" r="2"/><circle cx="150" cy="295" r="2"/><circle cx="165" cy="295" r="2"/><circle cx="180" cy="295" r="2"/>
+      <circle cx="210" cy="295" r="2"/><circle cx="225" cy="295" r="2"/><circle cx="240" cy="295" r="2"/><circle cx="255" cy="295" r="2"/><circle cx="270" cy="295" r="2"/>
+    </g>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  ADS1115 ADC Module (on breadboard)             -->
+  <!-- ================================================ -->
+  <g id="ads1115">
+    <rect x="100" y="280" width="140" height="110" rx="4" fill="#FFF3E0" stroke="#FF9800" stroke-width="2"/>
+    <text x="170" y="298" text-anchor="middle" font-size="11" font-weight="bold" fill="#E65100">ADS1115</text>
+    <text x="170" y="313" text-anchor="middle" font-size="9" fill="#FF9800">16bit ADC (I2C)</text>
+    <text x="170" y="328" text-anchor="middle" font-size="8" fill="#888">Addr: 0x48</text>
+
+    <!-- Left pins -->
+    <text x="110" y="350" font-size="8" fill="#F44336">VCC ●</text>
+    <text x="110" y="365" font-size="8" fill="#212121">GND ●</text>
+    <text x="110" y="380" font-size="8" fill="#4CAF50">SDA ●</text>
+
+    <!-- Right pins -->
+    <text x="225" y="350" text-anchor="end" font-size="8" fill="#2196F3">● SCL</text>
+    <text x="225" y="365" text-anchor="end" font-size="8" fill="#212121">● ADDR</text>
+    <text x="225" y="380" text-anchor="end" font-size="8" fill="#9C27B0">● A0</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  pH Sensor Module PH-4502C                      -->
+  <!-- ================================================ -->
+  <g id="ph-sensor">
+    <rect x="280" y="280" width="160" height="110" rx="4" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+    <text x="360" y="298" text-anchor="middle" font-size="11" font-weight="bold" fill="#2E7D32">PH-4502C</text>
+    <text x="360" y="313" text-anchor="middle" font-size="9" fill="#4CAF50">pHセンサーモジュール</text>
+
+    <!-- BNC connector symbol -->
+    <circle cx="360" cy="340" r="15" fill="none" stroke="#4CAF50" stroke-width="2"/>
+    <circle cx="360" cy="340" r="5" fill="#4CAF50"/>
+    <text x="360" y="362" text-anchor="middle" font-size="7" fill="#666">BNC</text>
+
+    <!-- Pins -->
+    <text x="290" y="378" font-size="8" fill="#F44336">V+ (5V) ●</text>
+    <text x="420" y="378" text-anchor="end" font-size="8" fill="#212121">● GND</text>
+    <text x="360" y="388" text-anchor="middle" font-size="8" fill="#9C27B0">Po (Signal) ●</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  RASPBERRY PI 4 (Top-Right)                     -->
+  <!-- ================================================ -->
+  <g id="raspberry-pi">
+    <rect x="600" y="130" width="320" height="220" rx="8" fill="#2E7D32" stroke="#1B5E20" stroke-width="2"/>
+    <text x="760" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#C8E6C9">Raspberry Pi 4 Model B</text>
+
+    <!-- GPIO Header representation -->
+    <rect x="620" y="170" width="280" height="160" rx="4" fill="#1B5E20"/>
+    <text x="760" y="190" text-anchor="middle" font-size="10" fill="#A5D6A7">GPIO 40-Pin Header</text>
+
+    <!-- Key pins used -->
+    <g font-size="9" fill="#FFF">
+      <!-- Left column -->
+      <circle cx="640" cy="215" r="5" fill="#F44336"/><text x="652" y="219">Pin 1: 3.3V</text>
+      <circle cx="640" cy="240" r="5" fill="#4CAF50"/><text x="652" y="244">Pin 3: GPIO2 (SDA)</text>
+      <circle cx="640" cy="265" r="5" fill="#2196F3"/><text x="652" y="269">Pin 5: GPIO3 (SCL)</text>
+      <circle cx="640" cy="290" r="5" fill="#212121" stroke="#666" stroke-width="1"/><text x="652" y="294">Pin 9: GND</text>
+
+      <!-- Right column -->
+      <circle cx="820" cy="215" r="5" fill="#F44336"/><text x="832" y="219">Pin 2: 5V</text>
+      <circle cx="820" cy="240" r="5" fill="#212121" stroke="#666" stroke-width="1"/><text x="832" y="244">Pin 6: GND</text>
+      <circle cx="820" cy="265" r="5" fill="#2196F3"/><text x="832" y="269">Pin 22: GPIO25</text>
+    </g>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  4CH RELAY MODULE (portion for IN4)             -->
+  <!-- ================================================ -->
+  <g id="relay-module">
+    <rect x="980" y="130" width="360" height="220" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <text x="1160" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#0D47A1">4ch リレーモジュール</text>
+    <text x="1160" y="172" text-anchor="middle" font-size="10" fill="#1976D2">IN4: ペリスタルティックポンプ制御</text>
+
+    <!-- Input side -->
+    <rect x="1000" y="190" width="100" height="140" rx="4" fill="#BBDEFB" stroke="#1976D2" stroke-width="1"/>
+    <text x="1050" y="210" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565C0">入力側</text>
+
+    <circle cx="1020" cy="235" r="5" fill="#F44336"/><text x="1032" y="239" font-size="9" fill="#333">VCC (5V)</text>
+    <circle cx="1020" cy="260" r="5" fill="#212121"/><text x="1032" y="264" font-size="9" fill="#333">GND</text>
+    <circle cx="1020" cy="290" r="5" fill="#9E9E9E"/><text x="1032" y="294" font-size="9" fill="#9E9E9E">IN1-3 (他用途)</text>
+    <circle cx="1020" cy="315" r="5" fill="#2196F3"/><text x="1032" y="319" font-size="9" fill="#333">IN4 (GPIO25)</text>
+
+    <!-- Relay coil CH4 -->
+    <rect x="1115" y="190" width="110" height="140" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+    <text x="1170" y="210" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565C0">CH4</text>
+
+    <rect x="1125" y="230" width="90" height="80" rx="3" fill="#FFF" stroke="#1976D2" stroke-width="2"/>
+    <text x="1170" y="250" text-anchor="middle" font-size="9" fill="#1565C0">ペリスタルティック</text>
+    <text x="1170" y="265" text-anchor="middle" font-size="9" fill="#1565C0">ポンプ</text>
+    <!-- Coil symbol -->
+    <path d="M1140,280 q10,-8 20,0 q10,8 20,0 q10,-8 20,0" fill="none" stroke="#1565C0" stroke-width="2"/>
+
+    <!-- Output side -->
+    <rect x="1240" y="190" width="80" height="140" rx="4" fill="#FFECB3" stroke="#FF9800" stroke-width="1"/>
+    <text x="1280" y="210" text-anchor="middle" font-size="10" font-weight="bold" fill="#E65100">出力側</text>
+
+    <text x="1250" y="250" font-size="8" fill="#333">COM4 ●</text>
+    <text x="1250" y="275" font-size="8" fill="#4CAF50">NO4 ●</text>
+    <text x="1250" y="300" font-size="8" fill="#F44336">NC4 ●</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  DC 12V POWER & PERISTALTIC PUMP                -->
+  <!-- ================================================ -->
+  <g id="dc-power-section">
+    <rect x="60" y="520" width="260" height="120" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="2"/>
+    <text x="190" y="545" text-anchor="middle" font-size="12" font-weight="bold" fill="#E65100">DC 12V 電源部</text>
+
+    <!-- AC-DC PSU -->
+    <rect x="80" y="560" width="100" height="60" rx="4" fill="#FFE0B2" stroke="#FF9800" stroke-width="1"/>
+    <text x="130" y="582" text-anchor="middle" font-size="10" font-weight="bold" fill="#E65100">AC-DC電源</text>
+    <text x="130" y="598" text-anchor="middle" font-size="9" fill="#FF9800">12V / 2A</text>
+
+    <!-- 12V output terminals -->
+    <circle cx="210" cy="575" r="6" fill="#FF9800"/><text x="222" y="579" font-size="9" fill="#E65100" font-weight="bold">+12V</text>
+    <circle cx="210" cy="605" r="6" fill="#212121"/><text x="222" y="609" font-size="9" fill="#333">GND</text>
+  </g>
+
+  <!-- Peristaltic Pump -->
+  <g id="peristaltic-pump">
+    <rect x="360" y="520" width="200" height="120" rx="8" fill="#FFECB3" stroke="#FF9800" stroke-width="2"/>
+    <text x="460" y="545" text-anchor="middle" font-size="12" font-weight="bold" fill="#E65100">ペリスタルティックポンプ</text>
+    <text x="460" y="562" text-anchor="middle" font-size="9" fill="#FF9800">DC12V / pH Down液</text>
+
+    <!-- Pump symbol -->
+    <circle cx="460" cy="595" r="22" fill="none" stroke="#E65100" stroke-width="2"/>
+    <circle cx="460" cy="595" r="8" fill="#E65100"/>
+    <!-- Tube indicators -->
+    <line x1="438" y1="595" x2="420" y2="595" stroke="#E65100" stroke-width="3"/>
+    <line x1="482" y1="595" x2="500" y2="595" stroke="#E65100" stroke-width="3"/>
+    <text x="410" y="590" font-size="7" fill="#666">IN</text>
+    <text x="502" y="590" font-size="7" fill="#666">OUT</text>
+
+    <!-- Terminals -->
+    <circle cx="380" cy="575" r="5" fill="#FF9800"/><text x="388" y="579" font-size="8" fill="#E65100">+</text>
+    <circle cx="380" cy="610" r="5" fill="#212121"/><text x="388" y="614" font-size="8" fill="#333">-</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  WIRING CONNECTIONS                              -->
+  <!-- ================================================ -->
+
+  <!-- Pi 3.3V to breadboard + rail -->
+  <g id="wiring-power">
+    <polyline points="640,215 580,215 580,183 520,183" fill="none" stroke="#F44336" stroke-width="3"/>
+    <text x="550" y="178" font-size="8" fill="#F44336" font-weight="bold">3.3V</text>
+
+    <!-- Pi 5V to pH sensor and relay -->
+    <polyline points="820,215 870,215 870,100 550,100 550,375 290,375" fill="none" stroke="#F44336" stroke-width="2" stroke-dasharray="6,3"/>
+    <text x="420" y="95" font-size="8" fill="#F44336">5V (pHセンサー用)</text>
+
+    <!-- 5V to relay -->
+    <polyline points="870,100 950,100 950,235 1000,235" fill="none" stroke="#F44336" stroke-width="2"/>
+    <text x="910" y="168" font-size="8" fill="#F44336">5V → リレー</text>
+
+    <!-- GND from Pi to breadboard -->
+    <polyline points="640,290 580,290 580,213 520,213" fill="none" stroke="#212121" stroke-width="3"/>
+    <text x="550" y="208" font-size="8" fill="#333" font-weight="bold">GND</text>
+
+    <!-- GND to relay -->
+    <polyline points="820,240 880,240 880,260 1000,260" fill="none" stroke="#212121" stroke-width="2"/>
+  </g>
+
+  <!-- I2C: SDA (Pin 3) to ADS1115 -->
+  <g id="wiring-i2c">
+    <polyline points="640,240 570,240 570,377 225,377" fill="none" stroke="#4CAF50" stroke-width="2"/>
+    <text x="400" y="372" font-size="8" fill="#4CAF50" font-weight="bold">SDA (GPIO2)</text>
+
+    <!-- I2C: SCL (Pin 5) to ADS1115 -->
+    <polyline points="640,265 560,265 560,347 225,347" fill="none" stroke="#2196F3" stroke-width="2"/>
+    <text x="400" y="342" font-size="8" fill="#2196F3" font-weight="bold">SCL (GPIO3)</text>
+  </g>
+
+  <!-- ADS1115 connections -->
+  <g id="wiring-ads1115">
+    <!-- VCC from 3.3V rail -->
+    <polyline points="110,347 70,347 70,183 80,183" fill="none" stroke="#F44336" stroke-width="1.5"/>
+    <circle cx="70" cy="183" r="3" fill="#F44336"/>
+
+    <!-- GND -->
+    <polyline points="110,362 60,362 60,213 80,213" fill="none" stroke="#212121" stroke-width="1.5"/>
+    <circle cx="60" cy="213" r="3" fill="#212121"/>
+
+    <!-- ADDR to GND (0x48) -->
+    <polyline points="225,362 250,362 250,450 70,450 70,213" fill="none" stroke="#212121" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="160" y="445" font-size="7" fill="#888">ADDR → GND (0x48)</text>
+
+    <!-- A0 to pH sensor Po -->
+    <polyline points="225,377 260,377 260,400 360,400 360,388" fill="none" stroke="#9C27B0" stroke-width="2"/>
+    <text x="310" y="410" font-size="8" fill="#9C27B0" font-weight="bold">A0 ← pH信号</text>
+  </g>
+
+  <!-- pH sensor connections -->
+  <g id="wiring-ph">
+    <!-- pH GND -->
+    <polyline points="420,375 450,375 450,450 60,450" fill="none" stroke="#212121" stroke-width="1.5"/>
+    <circle cx="60" cy="450" r="3" fill="#212121"/>
+  </g>
+
+  <!-- GPIO25 to Relay IN4 -->
+  <g id="wiring-gpio25">
+    <polyline points="820,265 890,265 890,315 1000,315" fill="none" stroke="#2196F3" stroke-width="2"/>
+    <text x="930" y="310" font-size="8" fill="#2196F3" font-weight="bold">GPIO25 → IN4</text>
+  </g>
+
+  <!-- 12V wiring through relay -->
+  <g id="wiring-12v">
+    <!-- 12V+ to Relay COM4 -->
+    <polyline points="216,575 280,575 280,490 1320,490 1320,247 1300,247" fill="none" stroke="#FF9800" stroke-width="3"/>
+    <text x="800" y="485" font-size="9" fill="#FF9800" font-weight="bold">12V+ → リレーCOM4</text>
+
+    <!-- Relay NO4 to Pump+ -->
+    <polyline points="1300,272 1340,272 1340,505 530,505 530,575 385,575" fill="none" stroke="#FF9800" stroke-width="3"/>
+    <text x="930" y="500" font-size="9" fill="#FF9800" font-weight="bold">リレーNO4 → ポンプ+</text>
+
+    <!-- Pump- to 12V GND -->
+    <polyline points="385,610 320,610 320,660 250,660 250,605 216,605" fill="none" stroke="#212121" stroke-width="3"/>
+    <text x="270" y="675" font-size="9" fill="#333" font-weight="bold">ポンプ- → 電源GND</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  RELAY OPERATION EXPLANATION                     -->
+  <!-- ================================================ -->
+  <g id="relay-explanation">
+    <rect x="600" y="380" width="340" height="90" rx="6" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1"/>
+    <text x="770" y="400" text-anchor="middle" font-size="11" font-weight="bold" fill="#2E7D32">リレー動作説明（IN4）</text>
+    <text x="615" y="420" font-size="9" fill="#333">• GPIO25 → LOW: リレーON → ポンプ動作</text>
+    <text x="615" y="438" font-size="9" fill="#333">• GPIO25 → HIGH: リレーOFF → ポンプ停止</text>
+    <text x="615" y="456" font-size="9" fill="#2E7D32" font-weight="bold">※ pHが高い時にpH Down液を少量ずつ注入</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  PIN SUMMARY                                     -->
+  <!-- ================================================ -->
+  <g id="pin-summary">
+    <rect x="600" y="520" width="340" height="120" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/>
+    <text x="770" y="542" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Phase 5 GPIO使用一覧（追加分）</text>
+
+    <text x="615" y="565" font-size="10" fill="#F44336" font-weight="bold">電源:</text>
+    <text x="660" y="565" font-size="9" fill="#333">Pin 1 (3.3V) → ADS1115</text>
+    <text x="660" y="582" font-size="9" fill="#333">Pin 2 (5V) → pHセンサー, リレー</text>
+
+    <text x="615" y="605" font-size="10" fill="#4CAF50" font-weight="bold">I2C:</text>
+    <text x="660" y="605" font-size="9" fill="#333">Pin 3 (SDA), Pin 5 (SCL) → ADS1115</text>
+
+    <text x="615" y="628" font-size="10" fill="#2196F3" font-weight="bold">GPIO:</text>
+    <text x="660" y="628" font-size="9" fill="#333">Pin 22 (GPIO25) → リレー IN4</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  LEGEND                                          -->
+  <!-- ================================================ -->
+  <g id="legend">
+    <rect x="980" y="380" width="360" height="200" rx="6" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1"/>
+    <text x="1160" y="402" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">凡例（配線色）</text>
+
+    <line x1="1000" y1="425" x2="1050" y2="425" stroke="#F44336" stroke-width="4"/>
+    <text x="1060" y="429" font-size="10" fill="#333">赤: VCC (3.3V/5V)</text>
+
+    <line x1="1000" y1="450" x2="1050" y2="450" stroke="#212121" stroke-width="4"/>
+    <text x="1060" y="454" font-size="10" fill="#333">黒: GND</text>
+
+    <line x1="1000" y1="475" x2="1050" y2="475" stroke="#4CAF50" stroke-width="3"/>
+    <text x="1060" y="479" font-size="10" fill="#333">緑: SDA (I2C)</text>
+
+    <line x1="1000" y1="500" x2="1050" y2="500" stroke="#2196F3" stroke-width="3"/>
+    <text x="1060" y="504" font-size="10" fill="#333">青: SCL (I2C) / GPIO制御</text>
+
+    <line x1="1000" y1="525" x2="1050" y2="525" stroke="#9C27B0" stroke-width="3"/>
+    <text x="1060" y="529" font-size="10" fill="#333">紫: アナログ信号（pH）</text>
+
+    <line x1="1000" y1="550" x2="1050" y2="550" stroke="#FF9800" stroke-width="4"/>
+    <text x="1060" y="554" font-size="10" fill="#333">オレンジ: 12V系</text>
+
+    <line x1="1000" y1="575" x2="1050" y2="575" stroke="#F44336" stroke-width="2" stroke-dasharray="6,3"/>
+    <text x="1060" y="579" font-size="10" fill="#333">破線: 5V給電（別経路）</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  Phase 1-4 CONTINUITY NOTE                       -->
+  <!-- ================================================ -->
+  <g id="phase14-note">
+    <rect x="60" y="680" width="500" height="80" rx="6" fill="#F3E5F5" stroke="#9C27B0" stroke-width="1"/>
+    <text x="310" y="702" text-anchor="middle" font-size="11" font-weight="bold" fill="#7B1FA2">Phase 1-4 センサー・アクチュエーター類も継続使用</text>
+    <text x="80" y="725" font-size="9" fill="#333">• DS18B20 (水温), DHT22 (気温・湿度), フロートスイッチ (水位)</text>
+    <text x="80" y="745" font-size="9" fill="#333">• 4chリレー: 循環ポンプ, エアポンプ, UV殺菌灯 → 別途 phase3_breadboard.svg 参照</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  USAGE NOTES                                     -->
+  <!-- ================================================ -->
+  <g id="usage-notes">
+    <rect x="600" y="680" width="380" height="80" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+    <text x="790" y="702" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565C0">pH自動調整の使い方</text>
+    <text x="620" y="722" font-size="9" fill="#333">1. 目標pH範囲（例: 5.8〜6.2）を設定</text>
+    <text x="620" y="738" font-size="9" fill="#333">2. pH上昇時 → ポンプON → pH Down液を数秒注入</text>
+    <text x="620" y="754" font-size="9" fill="#333">3. 一定時間待機後、再測定してフィードバック</text>
+  </g>
+
+  <!-- ================================================ -->
+  <!--  OPTIONAL WARNING                                -->
+  <!-- ================================================ -->
+  <g id="optional-warning">
+    <rect x="1000" y="600" width="340" height="80" rx="6" fill="#FFF3E0" stroke="#FF9800" stroke-width="2"/>
+    <text x="1170" y="622" text-anchor="middle" font-size="11" font-weight="bold" fill="#E65100">⚠️ オプション実装について</text>
+    <text x="1020" y="645" font-size="9" fill="#333">• pH Down液の過剰注入に注意</text>
+    <text x="1020" y="662" font-size="9" fill="#333">• 手動調整でも十分運用可能</text>
+    <text x="1020" y="679" font-size="9" fill="#333">• 自動化は安定稼働確認後に追加推奨</text>
+  </g>
+
+</svg>

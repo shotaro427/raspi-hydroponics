@@ -1,11 +1,13 @@
 # Phase 2 実行計画書: センサー拡張 → Grafana一覧表示
 
-> **ゴール**: pHセンサー・水位センサー・気温湿度センサーを追加し、Grafanaで全センサー値を一覧表示
+> **ゴール**: 水位センサー・気温湿度センサーを追加し、Grafanaで全センサー値を一覧表示
 >
 > **前提条件**:
 > - Phase 1 完了済み（DS18B20 + Docker Compose + Grafana 稼働中）
 > - Raspberry Pi 4 Model B 1台構成
 > - フルスクラッチ開発（Mycodo等の既存OSSは利用しない）
+
+> **Note**: pHセンサーはPhase 5（オプション）で追加可能です。[docs/phases/PHASE5_PLAN.md](./PHASE5_PLAN.md) を参照。
 
 ---
 
@@ -13,204 +15,14 @@
 
 | 品名 | 型番 | 概算価格 | 購入先 | 備考 |
 |------|------|---------|--------|------|
-| pHセンサー | DFRobot SEN0161-V2 | 約2,000円 | Amazon/秋月電子 | アナログ出力、ADC必須 |
-| ADCモジュール | ADS1115 (16bit) | 約500円 | Amazon/秋月電子 | I2C接続、4ch |
-| フロートスイッチ | PP製 | 約300円 | Amazon/秋月電子 | 水位検知用 |
-| 温湿度センサー | DHT22 | 約500円 | Amazon/秋月電子 | 気温・湿度計測 |
+| フロートスイッチ | PP製 | 約300円 | Amazon | 水位検知用 |
+| 温湿度センサー | DHT22 | 約500円 | Amazon | 気温・湿度計測 |
 | ジャンパーワイヤ追加 | オス-メス | 約300円 | Amazon | 必要に応じて |
-| **合計** | | **約3,600円** | | |
+| **合計** | | **約1,100円** | | |
 
 ---
 
-## Step 1: ADS1115 ADC接続（I2C）
-
-### I2C有効化確認
-
-Phase 1で設定済みのはず。確認:
-
-```bash
-sudo raspi-config
-```
-
-Interface Options → I2C → Enable（有効になっていること）
-
-### ADS1115 配線図
-
-```
-Pi 4 GPIO               ADS1115
-┌──────────┐            ┌──────────────────────┐
-│ Pin 1    │            │                      │
-│ 3.3V     ├────────────┤ VDD                  │
-│          │            │                      │
-│ Pin 3    │            │                      │
-│ SDA      ├────────────┤ SDA                  │
-│          │            │                      │
-│ Pin 5    │            │                      │
-│ SCL      ├────────────┤ SCL                  │
-│          │            │                      │
-│ Pin 6    │            │                      │
-│ GND      ├──┬─────────┤ GND                  │
-│          │  │         │                      │
-│          │  └─────────┤ ADDR  ← GND接続で0x48│
-└──────────┘            │                      │
-                        │ A0 ──→ pHセンサー    │
-                        │ A1 ──→ ECセンサー    │
-                        │ A2 ──→ 予備          │
-                        │ A3 ──→ 予備          │
-                        └──────────────────────┘
-```
-
-### I2Cデバイス認識確認
-
-```bash
-i2cdetect -y 1
-```
-
-`0x48` にADS1115が表示されること:
-
-```
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:                         -- -- -- -- -- -- -- --
-10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-40: -- -- -- -- -- -- -- -- 48 -- -- -- -- -- -- --
-...
-```
-
-### Pythonライブラリインストール
-
-```bash
-pip install adafruit-circuitpython-ads1x15
-```
-
-### テストスクリプト
-
-```python
-#!/usr/bin/env python3
-"""test_ads1115.py - ADS1115 ADC動作確認"""
-
-import board
-import busio
-import adafruit_ads1x15.ads1115 as ADS
-from adafruit_ads1x15.analog_in import AnalogIn
-
-# I2Cバス初期化
-i2c = busio.I2C(board.SCL, board.SDA)
-ads = ADS.ADS1115(i2c)
-
-# チャンネル0を読み取り
-chan0 = AnalogIn(ads, ADS.P0)
-
-print(f"A0 電圧: {chan0.voltage:.3f} V")
-print(f"A0 RAW値: {chan0.value}")
-```
-
-実行:
-
-```bash
-python3 test_ads1115.py
-```
-
-電圧値が読めれば成功。
-
----
-
-## Step 2: pHセンサー接続・キャリブレーション
-
-### 配線
-
-```
-pHセンサーモジュール (DFRobot SEN0161-V2)
-┌──────────────┐
-│ VCC  ────────┼──→ 5V (Pi Pin 2)
-│ GND  ────────┼──→ GND
-│ SIGNAL ──────┼──→ ADS1115 A0
-│ TEMP ────────┼──→ (オプション: 温度補正用)
-└──────────────┘
-```
-
-**注意**: pHセンサーモジュールは5V動作だが、出力信号は0-3.3Vの範囲なのでADS1115で安全に読める。
-
-### キャリブレーション手順
-
-pHセンサーは2点校正が必要:
-
-1. **pH 7.0 標準液に浸す**
-   - 電圧値を記録（例: 1.65V）
-2. **pH 4.0 標準液に浸す**
-   - 電圧値を記録（例: 2.03V）
-3. **校正計算式**
-
-```python
-# 2点校正の計算
-pH_high = 7.0
-pH_low = 4.0
-voltage_high = 1.65  # pH 7.0時の電圧（実測値に置き換え）
-voltage_low = 2.03   # pH 4.0時の電圧（実測値に置き換え）
-
-# 傾きと切片を計算
-slope = (pH_high - pH_low) / (voltage_high - voltage_low)
-intercept = pH_high - slope * voltage_high
-
-# 任意の電圧からpH値を計算
-def voltage_to_ph(voltage):
-    return slope * voltage + intercept
-```
-
-### controller/sensors/ph.py
-
-```python
-"""pHセンサー読取モジュール"""
-
-import logging
-import board
-import busio
-import adafruit_ads1x15.ads1115 as ADS
-from adafruit_ads1x15.analog_in import AnalogIn
-
-logger = logging.getLogger(__name__)
-
-
-class PhSensor:
-    def __init__(self, slope: float, intercept: float, channel: int = 0):
-        """
-        Args:
-            slope: 校正で求めた傾き
-            intercept: 校正で求めた切片
-            channel: ADS1115のチャンネル（デフォルト: A0）
-        """
-        self.slope = slope
-        self.intercept = intercept
-        self.i2c = busio.I2C(board.SCL, board.SDA)
-        self.ads = ADS.ADS1115(self.i2c)
-        self.chan = AnalogIn(self.ads, channel)
-        logger.info("pHセンサー初期化完了")
-
-    def read(self) -> float:
-        """pH値を返す"""
-        voltage = self.chan.voltage
-        ph = self.slope * voltage + self.intercept
-        # pH値を妥当な範囲にクランプ
-        ph = max(0.0, min(14.0, ph))
-        logger.debug(f"pH: {ph:.2f} (電圧: {voltage:.3f}V)")
-        return round(ph, 2)
-```
-
-### config.yaml に追加
-
-```yaml
-sensors:
-  ph:
-    channel: 0  # ADS1115 A0
-    slope: -5.7      # 要キャリブレーション
-    intercept: 16.0  # 要キャリブレーション
-    interval_sec: 60
-```
-
----
-
-## Step 3: フロートスイッチ接続
+## Step 1: フロートスイッチ接続
 
 ### 配線
 
@@ -314,7 +126,7 @@ sensors:
 
 ---
 
-## Step 4: DHT22接続（気温・湿度）
+## Step 2: DHT22接続（気温・湿度）
 
 ### 依存パッケージ
 
@@ -427,7 +239,7 @@ sensors:
 
 ---
 
-## Step 5: controller/ にセンサーモジュール統合
+## Step 3: controller/ にセンサーモジュール統合
 
 ### ディレクトリ構成（Phase 2完了後）
 
@@ -439,7 +251,6 @@ controller/
 └── sensors/
     ├── __init__.py
     ├── temperature.py   # Phase 1
-    ├── ph.py            # Phase 2 新規
     ├── water_level.py   # Phase 2 新規
     └── humidity.py      # Phase 2 新規
 ```
@@ -456,12 +267,6 @@ sensors:
   temperature:
     interval_sec: 60
 
-  ph:
-    channel: 0
-    slope: -5.7
-    intercept: 16.0
-    interval_sec: 60
-
   water_level:
     gpio_pin: 22
     interval_sec: 10
@@ -471,7 +276,7 @@ sensors:
     interval_sec: 60
 ```
 
-### main.py（Phase 2拡張版）
+### main.py（Phase 2版）
 
 ```python
 #!/usr/bin/env python3
@@ -483,7 +288,6 @@ import time
 import yaml
 
 from sensors.temperature import TemperatureSensor
-from sensors.ph import PhSensor
 from sensors.water_level import WaterLevelSensor
 from sensors.humidity import HumiditySensor
 from mqtt_client import MqttClient
@@ -515,11 +319,6 @@ def main():
 
     # センサー初期化
     temp_sensor = TemperatureSensor()
-    ph_sensor = PhSensor(
-        slope=sensor_conf["ph"]["slope"],
-        intercept=sensor_conf["ph"]["intercept"],
-        channel=sensor_conf["ph"]["channel"]
-    )
     water_sensor = WaterLevelSensor(sensor_conf["water_level"]["gpio_pin"])
     humidity_sensor = HumiditySensor(sensor_conf["humidity"]["gpio_pin"])
 
@@ -534,7 +333,6 @@ def main():
     # 読み取り間隔の管理
     last_read = {
         "temperature": 0,
-        "ph": 0,
         "water_level": 0,
         "humidity": 0
     }
@@ -549,16 +347,6 @@ def main():
                 mqtt_client.publish("sensors/water_temp", temp)
                 logger.info(f"水温: {temp:.1f}°C")
                 last_read["temperature"] = now
-
-            # pH
-            if now - last_read["ph"] >= sensor_conf["ph"]["interval_sec"]:
-                try:
-                    ph = ph_sensor.read()
-                    mqtt_client.publish("sensors/ph", ph)
-                    logger.info(f"pH: {ph:.2f}")
-                except Exception as e:
-                    logger.error(f"pH読み取りエラー: {e}")
-                last_read["ph"] = now
 
             # 水位
             if now - last_read["water_level"] >= sensor_conf["water_level"]["interval_sec"]:
@@ -599,37 +387,17 @@ if __name__ == "__main__":
 | トピック | 値 | 単位 |
 |---------|-----|------|
 | `hydroponics/sensors/water_temp` | 数値 | °C |
-| `hydroponics/sensors/ph` | 数値 | pH値 |
 | `hydroponics/sensors/water_level` | "normal" or "low" | - |
 | `hydroponics/sensors/air_temp` | 数値 | °C |
 | `hydroponics/sensors/humidity` | 数値 | % |
 
 ---
 
-## Step 6: Grafanaダッシュボードにウィジェット追加
+## Step 4: Grafanaダッシュボードにウィジェット追加
 
 ### パネル設定
 
-#### 1. pHパネル（ゲージ）
-
-- Visualization: **Gauge**
-- Query (Flux):
-
-```flux
-from(bucket: "hydroponics")
-  |> range(start: -5m)
-  |> filter(fn: (r) => r.topic == "hydroponics/sensors/ph")
-  |> filter(fn: (r) => r._field == "value")
-  |> last()
-```
-
-- Thresholds:
-  - 5.5: 赤（酸性すぎ）
-  - 6.0: 緑（適正範囲）
-  - 6.5: 緑（適正範囲）
-  - 7.0: 黄（アルカリ寄り）
-
-#### 2. 水位パネル（Stat）
+#### 1. 水位パネル（Stat）
 
 - Visualization: **Stat**
 - Query (Flux):
@@ -646,7 +414,7 @@ from(bucket: "hydroponics")
   - "normal" → 🟢 正常
   - "low" → 🔴 低下
 
-#### 3. 気温パネル（Time series）
+#### 2. 気温パネル（Time series）
 
 - Visualization: **Time series**
 - Query (Flux):
@@ -661,7 +429,7 @@ from(bucket: "hydroponics")
 - Unit: Celsius (°C)
 - Thresholds: 15°C〜30°C を緑
 
-#### 4. 湿度パネル（Time series）
+#### 3. 湿度パネル（Time series）
 
 - Visualization: **Time series**
 - Query (Flux):
@@ -676,20 +444,17 @@ from(bucket: "hydroponics")
 - Unit: Percent (0-100)
 - Thresholds: 40%〜70% を緑
 
-#### 5. 全センサー一覧ダッシュボード
+#### 4. 全センサー一覧ダッシュボード
 
-推奨レイアウト（2x3グリッド）:
+推奨レイアウト（2x2グリッド）:
 
 ```
 ┌───────────────┬───────────────┐
-│   水温 (°C)   │   pH (ゲージ)  │
-│  Time series  │    Gauge     │
+│   水温 (°C)   │ 水位 (ステータス)│
+│  Time series  │     Stat      │
 ├───────────────┼───────────────┤
 │   気温 (°C)   │   湿度 (%)    │
 │  Time series  │  Time series │
-├───────────────┼───────────────┤
-│ 水位 (ステータス)│              │
-│     Stat      │   (予備)      │
 └───────────────┴───────────────┘
 ```
 
@@ -698,9 +463,6 @@ from(bucket: "hydroponics")
 ## 動作確認チェックリスト
 
 ### センサー認識
-- [ ] ADS1115がI2Cで認識されている（`i2cdetect -y 1` で 0x48）
-- [ ] test_ads1115.py で電圧値が読める
-- [ ] pHセンサーがキャリブレーション済み（pH 4.0 / 7.0）
 - [ ] フロートスイッチが水位変化に反応する（手動テスト）
 - [ ] DHT22から気温・湿度が読める（test_dht22.py）
 
@@ -711,7 +473,6 @@ from(bucket: "hydroponics")
 
 ### アラート
 - [ ] 水位低下時にログ警告が出る
-- [ ] pH異常値時にGrafanaでしきい値色が変わる
 
 ### 永続化
 - [ ] hydroponics-controllerサービス再起動後も動作する
@@ -721,4 +482,4 @@ from(bucket: "hydroponics")
 
 ## ブレッドボード配線図
 
-→ [docs/diagrams/phase2_breadboard.svg](../diagrams/phase2_breadboard.svg) を参照（別タスクで作成）
+→ [docs/diagrams/phase2_breadboard.svg](../diagrams/phase2_breadboard.svg) を参照（pHセンサー無し版）
