@@ -26,7 +26,8 @@ raspi-hydroponics/
 │   ├── BOM.md
 │   ├── DAISO_MATERIALS.md
 │   ├── RACK_SETUP.md
-│   ├── diagrams/              # SVG設計図
+│   ├── phases/               # フェーズ別実行計画書
+│   ├── diagrams/             # SVG設計図
 │   └── REFERENCES.md
 ├── controller/                # センサー読取・ポンプ制御（Python）
 │   ├── main.py
@@ -55,7 +56,7 @@ raspi-hydroponics/
 | [docs/BOM.md](./docs/BOM.md) | 全材料一覧・部品表（百均・Amazon・電子部品） | 材料調達・予算確認時 |
 | [docs/DAISO_MATERIALS.md](./docs/DAISO_MATERIALS.md) | 百均材料リスト・DIY手順 | 材料調達・物理構造製作時 |
 | [docs/RACK_SETUP.md](./docs/RACK_SETUP.md) | 3段ラック設置図・組立手順・配線図 | 設置・組立時 |
-| [docs/PHASE1_PLAN.md](./docs/PHASE1_PLAN.md) | フェーズ1実行計画（DS18B20→Grafana表示） | フェーズ1着手時 |
+| [docs/phases/](./docs/phases/) | フェーズ別実行計画書（PHASE1〜4） | 各フェーズ着手時 |
 | [docs/diagrams/](./docs/diagrams/) | SVG設計図（配置図・配線図・配管図） | 物理設計・配線確認時 |
 | [docs/REFERENCES.md](./docs/REFERENCES.md) | 先行事例・参考リンク集 | 調査・比較検討時 |
 

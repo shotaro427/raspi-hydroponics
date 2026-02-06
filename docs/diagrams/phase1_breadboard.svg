@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="sans-serif">
+  <!-- Background -->
+  <rect width="900" height="650" fill="#FFF"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="bold">Phase 1 ブレッドボード配線図</text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#666">DS18B20 温度センサー → Raspberry Pi 4 Model B</text>
+
+  <!-- ================================ -->
+  <!-- RASPBERRY PI 4 GPIO HEADER       -->
+  <!-- ================================ -->
+  <g transform="translate(50, 100)">
+    <!-- Pi Board -->
+    <rect x="0" y="0" width="180" height="320" fill="#2E7D32" rx="8" stroke="#1B5E20" stroke-width="2"/>
+    <text x="90" y="25" text-anchor="middle" font-size="14" fill="#FFF" font-weight="bold">Raspberry Pi 4</text>
+    <text x="90" y="42" text-anchor="middle" font-size="10" fill="#C8E6C9">Model B</text>
+
+    <!-- 40-pin Header Background -->
+    <rect x="35" y="55" width="110" height="255" fill="#1B5E20" rx="3"/>
+    <text x="90" y="72" text-anchor="middle" font-size="9" fill="#A5D6A7">40-pin GPIO</text>
+
+    <!-- Pin rows (20 pins each side) -->
+    <!-- Left column (odd pins: 1,3,5...39) -->
+    <!-- Right column (even pins: 2,4,6...40) -->
+
+    <!-- Generate pins -->
+    <g font-size="7" fill="#FFF">
+      <!-- Row 1: Pin 1 (3.3V) - USED, Pin 2 (5V) -->
+      <circle cx="55" cy="90" r="5" fill="#FF5722"/>
+      <text x="55" y="93" text-anchor="middle" fill="#FFF" font-size="6">1</text>
+      <text x="38" y="93" text-anchor="end" font-size="7" fill="#FF5722" font-weight="bold">3.3V</text>
+      <circle cx="125" cy="90" r="5" fill="#666"/>
+      <text x="125" y="93" text-anchor="middle" fill="#FFF" font-size="6">2</text>
+      <text x="142" y="93" text-anchor="start" font-size="7" fill="#888">5V</text>
+
+      <!-- Row 2: Pin 3 (GPIO2), Pin 4 (5V) -->
+      <circle cx="55" cy="102" r="4" fill="#555"/>
+      <text x="38" y="105" text-anchor="end" font-size="6" fill="#888">GPIO2</text>
+      <circle cx="125" cy="102" r="4" fill="#666"/>
+      <text x="142" y="105" text-anchor="start" font-size="6" fill="#888">5V</text>
+
+      <!-- Row 3: Pin 5 (GPIO3), Pin 6 (GND) - USED -->
+      <circle cx="55" cy="114" r="4" fill="#555"/>
+      <text x="38" y="117" text-anchor="end" font-size="6" fill="#888">GPIO3</text>
+      <circle cx="125" cy="114" r="5" fill="#333"/>
+      <text x="125" y="117" text-anchor="middle" fill="#FFF" font-size="6">6</text>
+      <text x="142" y="117" text-anchor="start" font-size="7" fill="#333" font-weight="bold">GND</text>
+
+      <!-- Row 4: Pin 7 (GPIO4) - USED, Pin 8 (GPIO14) -->
+      <circle cx="55" cy="126" r="5" fill="#FFC107"/>
+      <text x="55" y="129" text-anchor="middle" fill="#333" font-size="6">7</text>
+      <text x="38" y="129" text-anchor="end" font-size="7" fill="#FFC107" font-weight="bold">GPIO4</text>
+      <circle cx="125" cy="126" r="4" fill="#555"/>
+      <text x="142" y="129" text-anchor="start" font-size="6" fill="#888">GPIO14</text>
+
+      <!-- Row 5-20: Other pins (simplified) -->
+      <g fill="#555">
+        <circle cx="55" cy="138" r="3"/><circle cx="125" cy="138" r="3"/>
+        <circle cx="55" cy="150" r="3"/><circle cx="125" cy="150" r="3"/>
+        <circle cx="55" cy="162" r="3"/><circle cx="125" cy="162" r="3"/>
+        <circle cx="55" cy="174" r="3"/><circle cx="125" cy="174" r="3"/>
+        <circle cx="55" cy="186" r="3"/><circle cx="125" cy="186" r="3"/>
+        <circle cx="55" cy="198" r="3"/><circle cx="125" cy="198" r="3"/>
+        <circle cx="55" cy="210" r="3"/><circle cx="125" cy="210" r="3"/>
+        <circle cx="55" cy="222" r="3"/><circle cx="125" cy="222" r="3"/>
+        <circle cx="55" cy="234" r="3"/><circle cx="125" cy="234" r="3"/>
+        <circle cx="55" cy="246" r="3"/><circle cx="125" cy="246" r="3"/>
+        <circle cx="55" cy="258" r="3"/><circle cx="125" cy="258" r="3"/>
+        <circle cx="55" cy="270" r="3"/><circle cx="125" cy="270" r="3"/>
+        <circle cx="55" cy="282" r="3"/><circle cx="125" cy="282" r="3"/>
+        <circle cx="55" cy="294" r="3"/><circle cx="125" cy="294" r="3"/>
+        <circle cx="55" cy="306" r="3"/><circle cx="125" cy="306" r="3"/>
+      </g>
+      <!-- Pin 39, 40 labels -->
+      <text x="38" y="309" text-anchor="end" font-size="6" fill="#888">39</text>
+      <text x="142" y="309" text-anchor="start" font-size="6" fill="#888">40</text>
+    </g>
+
+    <!-- Used pins highlight box -->
+    <rect x="30" y="82" width="130" height="52" fill="none" stroke="#FF5722" stroke-width="2" stroke-dasharray="4" rx="3"/>
+    <text x="160" y="78" font-size="8" fill="#FF5722">使用ピン</text>
+  </g>
+
+  <!-- ================================ -->
+  <!-- BREADBOARD                        -->
+  <!-- ================================ -->
+  <g transform="translate(320, 100)">
+    <!-- Breadboard body -->
+    <rect x="0" y="0" width="380" height="280" fill="#E8E8E0" rx="5" stroke="#BDBDBD" stroke-width="2"/>
+
+    <!-- Center divider -->
+    <rect x="0" y="135" width="380" height="10" fill="#D0D0C8"/>
+
+    <!-- Power rails (top) -->
+    <rect x="10" y="10" width="360" height="25" fill="#F5F5F0" rx="2"/>
+    <line x1="10" y1="17" x2="370" y2="17" stroke="#FF5722" stroke-width="2"/>
+    <line x1="10" y1="28" x2="370" y2="28" stroke="#2196F3" stroke-width="2"/>
+    <text x="5" y="20" font-size="8" fill="#FF5722" font-weight="bold">+</text>
+    <text x="5" y="31" font-size="8" fill="#2196F3" font-weight="bold">-</text>
+
+    <!-- Power rails (bottom) -->
+    <rect x="10" y="245" width="360" height="25" fill="#F5F5F0" rx="2"/>
+    <line x1="10" y1="252" x2="370" y2="252" stroke="#FF5722" stroke-width="2"/>
+    <line x1="10" y1="263" x2="370" y2="263" stroke="#2196F3" stroke-width="2"/>
+    <text x="5" y="255" font-size="8" fill="#FF5722" font-weight="bold">+</text>
+    <text x="5" y="266" font-size="8" fill="#2196F3" font-weight="bold">-</text>
+
+    <!-- Row labels (a-j) -->
+    <g font-size="8" fill="#888">
+      <text x="378" y="50">a</text>
+      <text x="378" y="65">b</text>
+      <text x="378" y="80">c</text>
+      <text x="378" y="95">d</text>
+      <text x="378" y="110">e</text>
+      <text x="378" y="165">f</text>
+      <text x="378" y="180">g</text>
+      <text x="378" y="195">h</text>
+      <text x="378" y="210">i</text>
+      <text x="378" y="225">j</text>
+    </g>
+
+    <!-- Column numbers (1-30) -->
+    <g font-size="6" fill="#AAA" text-anchor="middle">
+      <text x="20" y="130">1</text>
+      <text x="32" y="130">2</text>
+      <text x="44" y="130">3</text>
+      <text x="56" y="130">4</text>
+      <text x="68" y="130">5</text>
+      <text x="80" y="130">6</text>
+      <text x="92" y="130">7</text>
+      <text x="104" y="130">8</text>
+      <text x="116" y="130">9</text>
+      <text x="128" y="130">10</text>
+      <text x="152" y="130">12</text>
+      <text x="176" y="130">14</text>
+      <text x="200" y="130">16</text>
+      <text x="224" y="130">18</text>
+      <text x="248" y="130">20</text>
+      <text x="272" y="130">22</text>
+      <text x="296" y="130">24</text>
+      <text x="320" y="130">26</text>
+      <text x="344" y="130">28</text>
+      <text x="356" y="130">30</text>
+    </g>
+
+    <!-- Holes grid (simplified - key areas only) -->
+    <!-- Top section (rows a-e) -->
+    <g fill="#444">
+      <!-- Column 5: DS18B20 location -->
+      <circle cx="68" cy="47" r="2"/><circle cx="68" cy="62" r="2"/><circle cx="68" cy="77" r="2"/>
+      <circle cx="68" cy="92" r="2"/><circle cx="68" cy="107" r="2"/>
+      <!-- Column 6 -->
+      <circle cx="80" cy="47" r="2"/><circle cx="80" cy="62" r="2"/><circle cx="80" cy="77" r="2"/>
+      <circle cx="80" cy="92" r="2"/><circle cx="80" cy="107" r="2"/>
+      <!-- Column 7 -->
+      <circle cx="92" cy="47" r="2"/><circle cx="92" cy="62" r="2"/><circle cx="92" cy="77" r="2"/>
+      <circle cx="92" cy="92" r="2"/><circle cx="92" cy="107" r="2"/>
+      <!-- Column 10: Resistor end -->
+      <circle cx="128" cy="47" r="2"/><circle cx="128" cy="62" r="2"/><circle cx="128" cy="77" r="2"/>
+      <circle cx="128" cy="92" r="2"/><circle cx="128" cy="107" r="2"/>
+    </g>
+
+    <!-- Bottom section (rows f-j) - simplified -->
+    <g fill="#444">
+      <circle cx="68" cy="162" r="2"/><circle cx="68" cy="177" r="2"/><circle cx="68" cy="192" r="2"/>
+      <circle cx="68" cy="207" r="2"/><circle cx="68" cy="222" r="2"/>
+      <circle cx="80" cy="162" r="2"/><circle cx="80" cy="177" r="2"/><circle cx="80" cy="192" r="2"/>
+      <circle cx="80" cy="207" r="2"/><circle cx="80" cy="222" r="2"/>
+      <circle cx="92" cy="162" r="2"/><circle cx="92" cy="177" r="2"/><circle cx="92" cy="192" r="2"/>
+      <circle cx="92" cy="207" r="2"/><circle cx="92" cy="222" r="2"/>
+    </g>
+
+    <!-- ================================ -->
+    <!-- DS18B20 SENSOR                   -->
+    <!-- ================================ -->
+    <g transform="translate(68, 47)">
+      <!-- Sensor body (TO-92 package) -->
+      <rect x="-15" y="-20" width="48" height="25" fill="#333" rx="3"/>
+      <text x="9" y="-5" text-anchor="middle" font-size="8" fill="#FFF" font-weight="bold">DS18B20</text>
+      <!-- Pins -->
+      <line x1="0" y1="5" x2="0" y2="25" stroke="#888" stroke-width="2"/>
+      <line x1="12" y1="5" x2="12" y2="25" stroke="#888" stroke-width="2"/>
+      <line x1="24" y1="5" x2="24" y2="25" stroke="#888" stroke-width="2"/>
+      <!-- Pin labels -->
+      <text x="0" y="38" text-anchor="middle" font-size="7" fill="#333">GND</text>
+      <text x="12" y="38" text-anchor="middle" font-size="7" fill="#FFC107">DATA</text>
+      <text x="24" y="38" text-anchor="middle" font-size="7" fill="#FF5722">VCC</text>
+      <!-- Pin inserted markers -->
+      <circle cx="0" cy="60" r="3" fill="#333"/>
+      <circle cx="12" cy="60" r="3" fill="#FFC107"/>
+      <circle cx="24" cy="60" r="3" fill="#FF5722"/>
+    </g>
+
+    <!-- ================================ -->
+    <!-- 4.7kΩ RESISTOR                   -->
+    <!-- ================================ -->
+    <g transform="translate(80, 47)">
+      <!-- Resistor body with color bands -->
+      <rect x="0" y="55" width="48" height="12" fill="#D2B48C" rx="2"/>
+      <!-- Color bands: Yellow-Violet-Red-Gold = 4.7kΩ -->
+      <rect x="6" y="55" width="4" height="12" fill="#FFD700"/>
+      <rect x="14" y="55" width="4" height="12" fill="#8B00FF"/>
+      <rect x="22" y="55" width="4" height="12" fill="#FF0000"/>
+      <rect x="38" y="55" width="4" height="12" fill="#FFD700"/>
+      <!-- Leads -->
+      <line x1="0" y1="61" x2="-8" y2="61" stroke="#888" stroke-width="1.5"/>
+      <line x1="48" y1="61" x2="56" y2="61" stroke="#888" stroke-width="1.5"/>
+      <!-- Connection points -->
+      <circle cx="-8" cy="61" r="3" fill="#FFC107"/>
+      <circle cx="56" cy="61" r="3" fill="#FF5722"/>
+      <!-- Label -->
+      <text x="24" y="80" text-anchor="middle" font-size="8" fill="#666">4.7kΩ</text>
+    </g>
+  </g>
+
+  <!-- ================================ -->
+  <!-- JUMPER WIRES                      -->
+  <!-- ================================ -->
+  <!-- VCC (Red): Pi Pin 1 → Breadboard + rail → Resistor → DS18B20 VCC -->
+  <g stroke="#FF5722" stroke-width="3" fill="none">
+    <!-- Pi Pin 1 to breadboard + rail -->
+    <path d="M 155,190 C 200,190 280,115 330,117" stroke-linecap="round"/>
+    <!-- + rail to resistor/sensor junction -->
+    <line x1="448" y1="117" x2="448" y2="156"/>
+  </g>
+
+  <!-- GND (Black): Pi Pin 6 → Breadboard - rail → DS18B20 GND -->
+  <g stroke="#333" stroke-width="3" fill="none">
+    <!-- Pi Pin 6 to breadboard - rail -->
+    <path d="M 175,214 C 220,214 270,128 330,128" stroke-linecap="round"/>
+    <!-- - rail to DS18B20 GND -->
+    <line x1="388" y1="128" x2="388" y2="203"/>
+  </g>
+
+  <!-- DATA (Yellow/Green): Pi Pin 7 → DS18B20 DATA (via resistor junction) -->
+  <g stroke="#FFC107" stroke-width="3" fill="none">
+    <!-- Pi Pin 7 to breadboard data line -->
+    <path d="M 105,226 C 150,260 320,260 400,203" stroke-linecap="round"/>
+    <!-- Junction to resistor -->
+    <line x1="392" y1="156" x2="392" y2="203"/>
+  </g>
+
+  <!-- ================================ -->
+  <!-- CONNECTION LABELS                 -->
+  <!-- ================================ -->
+  <g font-size="9" fill="#555">
+    <text x="200" y="175" fill="#FF5722">Pin 1 (3.3V)</text>
+    <text x="200" y="228" fill="#333">Pin 6 (GND)</text>
+    <text x="120" y="280" fill="#FFC107">Pin 7 (GPIO4)</text>
+  </g>
+
+  <!-- ================================ -->
+  <!-- LEGEND                            -->
+  <!-- ================================ -->
+  <g transform="translate(720, 100)">
+    <text x="0" y="0" font-size="14" font-weight="bold" fill="#333">凡例</text>
+    <rect x="-5" y="10" width="170" height="180" fill="none" stroke="#E0E0E0" rx="5"/>
+
+    <!-- VCC -->
+    <line x1="10" y1="35" x2="50" y2="35" stroke="#FF5722" stroke-width="3"/>
+    <text x="60" y="39" font-size="10" fill="#333">VCC (3.3V) - 赤</text>
+
+    <!-- GND -->
+    <line x1="10" y1="60" x2="50" y2="60" stroke="#333" stroke-width="3"/>
+    <text x="60" y="64" font-size="10" fill="#333">GND - 黒</text>
+
+    <!-- DATA -->
+    <line x1="10" y1="85" x2="50" y2="85" stroke="#FFC107" stroke-width="3"/>
+    <text x="60" y="89" font-size="10" fill="#333">DATA (GPIO4) - 黄</text>
+
+    <!-- Resistor -->
+    <rect x="10" y="103" width="40" height="10" fill="#D2B48C" rx="2"/>
+    <rect x="14" y="103" width="3" height="10" fill="#FFD700"/>
+    <rect x="20" y="103" width="3" height="10" fill="#8B00FF"/>
+    <rect x="26" y="103" width="3" height="10" fill="#FF0000"/>
+    <text x="60" y="113" font-size="10" fill="#333">抵抗 4.7kΩ</text>
+
+    <!-- Sensor -->
+    <rect x="10" y="125" width="40" height="18" fill="#333" rx="2"/>
+    <text x="30" y="137" text-anchor="middle" font-size="7" fill="#FFF">DS18B20</text>
+    <text x="60" y="138" font-size="10" fill="#333">温度センサー</text>
+
+    <!-- Used pins -->
+    <circle cx="30" cy="165" r="8" fill="#FF5722" opacity="0.3"/>
+    <circle cx="30" cy="165" r="4" fill="#FF5722"/>
+    <text x="60" y="169" font-size="10" fill="#333">使用ピン</text>
+  </g>
+
+  <!-- ================================ -->
+  <!-- WIRING TABLE                      -->
+  <!-- ================================ -->
+  <g transform="translate(50, 460)">
+    <text x="0" y="0" font-size="14" font-weight="bold" fill="#333">配線一覧</text>
+
+    <g font-size="11">
+      <!-- Header -->
+      <rect x="0" y="15" width="600" height="25" fill="#F5F5F5"/>
+      <text x="10" y="32" font-weight="bold">From</text>
+      <text x="200" y="32" font-weight="bold">To</text>
+      <text x="400" y="32" font-weight="bold">Wire Color</text>
+      <text x="520" y="32" font-weight="bold">Function</text>
+
+      <!-- Row 1 -->
+      <line x1="0" y1="40" x2="600" y2="40" stroke="#E0E0E0"/>
+      <text x="10" y="57">Pi Pin 1 (3.3V)</text>
+      <text x="200" y="57">Breadboard + rail</text>
+      <rect x="400" y="45" width="40" height="14" fill="#FF5722" rx="2"/>
+      <text x="450" y="57" fill="#FF5722">赤</text>
+      <text x="520" y="57">電源供給</text>
+
+      <!-- Row 2 -->
+      <line x1="0" y1="65" x2="600" y2="65" stroke="#E0E0E0"/>
+      <text x="10" y="82">Pi Pin 6 (GND)</text>
+      <text x="200" y="82">Breadboard - rail → DS18B20 Pin 1</text>
+      <rect x="400" y="70" width="40" height="14" fill="#333" rx="2"/>
+      <text x="450" y="82" fill="#333">黒</text>
+      <text x="520" y="82">グランド</text>
+
+      <!-- Row 3 -->
+      <line x1="0" y1="90" x2="600" y2="90" stroke="#E0E0E0"/>
+      <text x="10" y="107">Pi Pin 7 (GPIO4)</text>
+      <text x="200" y="107">DS18B20 Pin 2 (DATA)</text>
+      <rect x="400" y="95" width="40" height="14" fill="#FFC107" rx="2"/>
+      <text x="450" y="107" fill="#B8860B">黄</text>
+      <text x="520" y="107">1-Wire DATA</text>
+
+      <!-- Row 4 -->
+      <line x1="0" y1="115" x2="600" y2="115" stroke="#E0E0E0"/>
+      <text x="10" y="132">+ rail (3.3V)</text>
+      <text x="200" y="132">DS18B20 Pin 3 (VCC) + 抵抗</text>
+      <rect x="400" y="120" width="40" height="14" fill="#FF5722" rx="2"/>
+      <text x="450" y="132" fill="#FF5722">赤</text>
+      <text x="520" y="132">センサー電源</text>
+
+      <!-- Row 5 -->
+      <line x1="0" y1="140" x2="600" y2="140" stroke="#E0E0E0"/>
+      <text x="10" y="157">抵抗 4.7kΩ</text>
+      <text x="200" y="157">VCC (3.3V) ↔ DATA (GPIO4)</text>
+      <text x="400" y="157">-</text>
+      <text x="520" y="157">プルアップ</text>
+      <line x1="0" y1="165" x2="600" y2="165" stroke="#E0E0E0"/>
+    </g>
+  </g>
+
+  <!-- Footer note -->
+  <text x="450" y="635" text-anchor="middle" font-size="10" fill="#888">※ DS18B20の平らな面を正面に見て、左からGND, DATA, VCCの順</text>
+
+</svg>

@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  wiring_diagram.svg - GPIO詳細配線図（電気配線）
+
+  役割: Raspberry Pi GPIO ピンヘッダーからセンサー・アクチュエーターへの
+        電気的接続を詳細に示す。ピン番号、配線色、抵抗値等を含む。
+
+  関連ファイル:
+    - system_overview.svg: 物理配置図（ラック構成、機器配置）
+
+  対象読者: 配線作業者、デバッグ時の確認用
+  更新日: 2026-02-06
+-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="sans-serif">
   <defs>
     <marker id="arrowR" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#F44336"/></marker>

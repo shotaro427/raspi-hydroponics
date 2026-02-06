@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  system_overview.svg - システム全体配置図（物理レイアウト）
+
+  役割: ダイソーメタルラック3段構成の物理配置を示す正面図。
+        NFTチャンネル、リザーバー、電子機器の位置関係と
+        給排水チューブの流れを図示。
+
+  関連ファイル:
+    - wiring_diagram.svg: GPIO詳細配線図（電気配線）
+
+  対象読者: 組立作業者、システム理解用
+  更新日: 2026-02-06
+-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" font-family="sans-serif">
   <defs>
     <marker id="arrBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
