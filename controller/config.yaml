@@ -1,0 +1,15 @@
+mqtt:
+  broker: localhost
+  port: 1883
+  topic_prefix: hydroponics
+
+sensors:
+  temperature:
+    pin: 4
+    interval_sec: 60
+  water_level:
+    gpio_pin: 22
+    interval_sec: 10
+  humidity:
+    gpio_pin: 17
+    interval_sec: 60
