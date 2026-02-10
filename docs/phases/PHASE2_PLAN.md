@@ -143,8 +143,8 @@ Pi 4 GPIO               DHT22
 │ Pin 1    │            │              │
 │ 3.3V     ├────────────┤ VCC (ピン1)  │
 │          │            │              │
-│ Pin 11   │            │              │
-│ GPIO17   ├────────────┤ DATA (ピン2) │
+│ Pin 29   │            │              │
+│ GPIO5    ├────────────┤ DATA (ピン2) │
 │          │            │              │
 │          │            │ NC (ピン3)   │ ← 未使用
 │          │            │              │
@@ -174,7 +174,7 @@ class HumiditySensor:
         Args:
             gpio_pin: DHTセンサー接続GPIOピン番号
         """
-        # board.D17 のように指定する必要がある
+        # board.D5 のように指定する必要がある
         pin = getattr(board, f"D{gpio_pin}")
         self.dht = adafruit_dht.DHT22(pin)
         self.gpio_pin = gpio_pin
@@ -211,7 +211,7 @@ import board
 import adafruit_dht
 import time
 
-dht = adafruit_dht.DHT22(board.D17)
+dht = adafruit_dht.DHT22(board.D5)
 
 print("DHT22テスト（5回読み取り）")
 
@@ -233,7 +233,7 @@ print("テスト完了")
 ```yaml
 sensors:
   humidity:
-    gpio_pin: 17
+    gpio_pin: 5
     interval_sec: 60
 ```
 
@@ -272,7 +272,7 @@ sensors:
     interval_sec: 10
 
   humidity:
-    gpio_pin: 17
+    gpio_pin: 5
     interval_sec: 60
 ```
 
