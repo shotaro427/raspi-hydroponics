@@ -1,0 +1,16 @@
+# Phase 1-3 依存パッケージ
+
+# MQTT通信
+paho-mqtt==1.6.1
+
+# GPIO制御
+RPi.GPIO==0.7.1
+
+# DHT22センサー（Phase 2）
+Adafruit_DHT==1.4.0
+
+# スケジューラ（Phase 3）
+APScheduler==3.10.4
+
+# 設定ファイル読み込み
+PyYAML==6.0.1

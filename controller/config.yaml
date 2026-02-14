@@ -11,5 +11,20 @@ sensors:
     gpio_pin: 22
     interval_sec: 10
   humidity:
-    gpio_pin: 17
+    gpio_pin: 5          # Phase 2で GPIO17→5 に変更（リレーと競合解決）
     interval_sec: 60
+
+actuators:
+  circulation_pump:
+    gpio_pin: 17         # リレー IN1
+    active_low: true     # LOW信号でリレーON（一般的な4chリレー）
+    schedule:
+      day_start: "06:00"
+      day_end: "22:00"
+      on_minutes: 15     # 日中: 15分ON
+      off_minutes: 15    # 日中: 15分OFF
+
+safety:
+  emergency_stop:
+    water_temp_max: 30.0     # この温度を超えたら緊急停止
+    manual_reset_required: true  # 緊急停止後に手動リセット必須
