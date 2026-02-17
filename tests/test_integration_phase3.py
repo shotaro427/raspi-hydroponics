@@ -7,7 +7,11 @@
 
 import sys
 import time
-sys.path.insert(0, '../controller')
+from pathlib import Path
+
+# controllerディレクトリをモジュール検索パスに追加
+controller_dir = Path(__file__).parent.parent / "controller"
+sys.path.insert(0, str(controller_dir))
 
 from actuators.pump import CirculationPump
 
