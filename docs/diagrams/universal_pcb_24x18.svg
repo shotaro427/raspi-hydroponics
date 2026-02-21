@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1580" font-family="sans-serif">
+  <rect width="880" height="1580" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="440" y="22" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">水耕栽培 Phase 1-3 ユニバーサル基板 配線図</text>
+  <text x="440" y="40" text-anchor="middle" font-size="10" fill="#666">24×18ホール (2.54mmピッチ) ― 全配線はんだ面・部品面はピンヘッダのみ</text>
+
+  <defs>
+    <g id="hr">
+      <circle cx="0" cy="0" r="2.5"/><circle cx="26" cy="0" r="2.5"/><circle cx="52" cy="0" r="2.5"/><circle cx="78" cy="0" r="2.5"/><circle cx="104" cy="0" r="2.5"/><circle cx="130" cy="0" r="2.5"/><circle cx="156" cy="0" r="2.5"/><circle cx="182" cy="0" r="2.5"/>
+      <circle cx="208" cy="0" r="2.5"/><circle cx="234" cy="0" r="2.5"/><circle cx="260" cy="0" r="2.5"/><circle cx="286" cy="0" r="2.5"/><circle cx="312" cy="0" r="2.5"/><circle cx="338" cy="0" r="2.5"/><circle cx="364" cy="0" r="2.5"/><circle cx="390" cy="0" r="2.5"/>
+      <circle cx="416" cy="0" r="2.5"/><circle cx="442" cy="0" r="2.5"/><circle cx="468" cy="0" r="2.5"/><circle cx="494" cy="0" r="2.5"/><circle cx="520" cy="0" r="2.5"/><circle cx="546" cy="0" r="2.5"/><circle cx="572" cy="0" r="2.5"/><circle cx="598" cy="0" r="2.5"/>
+    </g>
+  </defs>
+
+  <!-- ============================================================ -->
+  <!--  VIEW 1: 部品面                                                -->
+  <!-- ============================================================ -->
+  <text x="440" y="62" text-anchor="middle" font-size="12" font-weight="bold" fill="#2E7D32">▼ 部品面（表から見た図） ― オスピンヘッダ＋R1 のみ（メスDuPontで抜き差し）</text>
+
+  <g id="comp-side">
+    <rect x="82" y="68" width="634" height="472" rx="4" fill="#d4edda" fill-opacity="0.35" stroke="#2d5016" stroke-width="1.5"/>
+
+    <!-- Column labels -->
+    <g font-size="7" fill="#999" text-anchor="middle">
+      <text x="100" y="78">A</text><text x="126" y="78">B</text><text x="152" y="78">C</text><text x="178" y="78">D</text><text x="204" y="78">E</text><text x="230" y="78">F</text><text x="256" y="78">G</text><text x="282" y="78">H</text><text x="308" y="78">I</text><text x="334" y="78">J</text><text x="360" y="78">K</text><text x="386" y="78">L</text><text x="412" y="78">M</text><text x="438" y="78">N</text><text x="464" y="78">O</text><text x="490" y="78">P</text><text x="516" y="78">Q</text><text x="542" y="78">R</text><text x="568" y="78">S</text><text x="594" y="78">T</text><text x="620" y="78">U</text><text x="646" y="78">V</text><text x="672" y="78">W</text><text x="698" y="78">X</text>
+    </g>
+    <!-- Row labels -->
+    <g font-size="7" fill="#999" text-anchor="end">
+      <text x="90" y="88">1</text>
+      <text x="90" y="114">2</text>
+      <text x="90" y="140">3</text>
+      <text x="90" y="166">4</text>
+      <text x="90" y="192">5</text>
+      <text x="90" y="218">6</text>
+      <text x="90" y="244">7</text>
+      <text x="90" y="270">8</text>
+      <text x="90" y="296">9</text>
+      <text x="90" y="322">10</text>
+      <text x="90" y="348">11</text>
+      <text x="90" y="374">12</text>
+      <text x="90" y="400">13</text>
+      <text x="90" y="426">14</text>
+      <text x="90" y="452">15</text>
+      <text x="90" y="478">16</text>
+      <text x="90" y="504">17</text>
+      <text x="90" y="530">18</text>
+    </g>
+
+    <!-- Hole grid -->
+    <g fill="#ccc">
+      <use href="#hr" x="100" y="85"/>
+      <use href="#hr" x="100" y="111"/>
+      <use href="#hr" x="100" y="137"/>
+      <use href="#hr" x="100" y="163"/>
+      <use href="#hr" x="100" y="189"/>
+      <use href="#hr" x="100" y="215"/>
+      <use href="#hr" x="100" y="241"/>
+      <use href="#hr" x="100" y="267"/>
+      <use href="#hr" x="100" y="293"/>
+      <use href="#hr" x="100" y="319"/>
+      <use href="#hr" x="100" y="345"/>
+      <use href="#hr" x="100" y="371"/>
+      <use href="#hr" x="100" y="397"/>
+      <use href="#hr" x="100" y="423"/>
+      <use href="#hr" x="100" y="449"/>
+      <use href="#hr" x="100" y="475"/>
+      <use href="#hr" x="100" y="501"/>
+      <use href="#hr" x="100" y="527"/>
+    </g>
+
+    <!-- *** Used hole highlights *** -->
+    <!-- J1: Pi Header -->
+    <circle cx="100" cy="137" r="3.5" fill="#e74c3c" opacity="0.8"/><!-- 3A 3.3V -->
+    <circle cx="126" cy="137" r="3.5" fill="#e67e22" opacity="0.8"/><!-- 3B 5V -->
+    <circle cx="100" cy="163" r="3.5" fill="#27ae60" opacity="0.8"/><!-- 4A G4 -->
+    <circle cx="126" cy="163" r="3.5" fill="#27ae60" opacity="0.8"/><!-- 4B G17 -->
+    <circle cx="100" cy="189" r="3.5" fill="#27ae60" opacity="0.8"/><!-- 5A G5 -->
+    <circle cx="126" cy="189" r="3.5" fill="#27ae60" opacity="0.8"/><!-- 5B G27 -->
+    <circle cx="100" cy="215" r="3.5" fill="#27ae60" opacity="0.8"/><!-- 6A G22 -->
+    <circle cx="126" cy="215" r="3.5" fill="#27ae60" opacity="0.8"/><!-- 6B G23 -->
+    <circle cx="126" cy="241" r="3.5" fill="#27ae60" opacity="0.8"/><!-- 7B G24 -->
+    <circle cx="100" cy="267" r="3.5" fill="#3498db" opacity="0.8"/><!-- 8A GND -->
+    <circle cx="126" cy="267" r="3.5" fill="#3498db" opacity="0.8"/><!-- 8B GND -->
+
+    <!-- R1 holes -->
+    <circle cx="256" cy="137" r="3" fill="#e74c3c" opacity="0.7"/><!-- 3G R1top -->
+    <circle cx="256" cy="215" r="3" fill="#27ae60" opacity="0.7"/><!-- 6G R1btm -->
+
+    <!-- J2 DS18B20 -->
+    <circle cx="230" cy="345" r="3" fill="#e74c3c" opacity="0.7"/><!-- 11F VCC -->
+    <circle cx="256" cy="345" r="3" fill="#27ae60" opacity="0.7"/><!-- 11G DATA -->
+    <circle cx="282" cy="345" r="3" fill="#3498db" opacity="0.7"/><!-- 11H GND -->
+
+    <!-- J3 DHT22 -->
+    <circle cx="360" cy="345" r="3" fill="#e74c3c" opacity="0.7"/><!-- 11K VCC -->
+    <circle cx="386" cy="345" r="3" fill="#27ae60" opacity="0.7"/><!-- 11L DATA -->
+    <circle cx="412" cy="345" r="3" fill="#3498db" opacity="0.7"/><!-- 11M GND -->
+
+    <!-- J4 Float -->
+    <circle cx="490" cy="345" r="3" fill="#27ae60" opacity="0.7"/><!-- 11P SIG -->
+    <circle cx="516" cy="345" r="3" fill="#3498db" opacity="0.7"/><!-- 11Q GND -->
+
+    <!-- J5 Relay -->
+    <circle cx="568" cy="345" r="3" fill="#e67e22" opacity="0.7"/><!-- 11S 5V -->
+    <circle cx="594" cy="345" r="3" fill="#3498db" opacity="0.7"/><!-- 11T GND -->
+    <circle cx="620" cy="345" r="3" fill="#27ae60" opacity="0.7"/><!-- 11U IN1 -->
+    <circle cx="646" cy="345" r="3" fill="#27ae60" opacity="0.7"/><!-- 11V IN2 -->
+    <circle cx="672" cy="345" r="3" fill="#27ae60" opacity="0.7"/><!-- 11W IN3 -->
+    <circle cx="698" cy="345" r="3" fill="#27ae60" opacity="0.7"/><!-- 11X IN4 -->
+
+    <!-- 3.3V bus holes Row 1 -->
+    <g fill="#e74c3c" opacity="0.5">
+      <circle cx="100" cy="85" r="3"/><circle cx="126" cy="85" r="3"/><circle cx="152" cy="85" r="3"/><circle cx="178" cy="85" r="3"/><circle cx="204" cy="85" r="3"/><circle cx="230" cy="85" r="3"/><circle cx="256" cy="85" r="3"/><circle cx="282" cy="85" r="3"/><circle cx="308" cy="85" r="3"/><circle cx="334" cy="85" r="3"/><circle cx="360" cy="85" r="3"/>
+    </g>
+    <!-- GND bus holes Row 18 -->
+    <g fill="#3498db" opacity="0.4">
+      <circle cx="100" cy="527" r="3"/><circle cx="126" cy="527" r="3"/><circle cx="152" cy="527" r="3"/><circle cx="178" cy="527" r="3"/><circle cx="204" cy="527" r="3"/><circle cx="230" cy="527" r="3"/><circle cx="256" cy="527" r="3"/><circle cx="282" cy="527" r="3"/><circle cx="308" cy="527" r="3"/><circle cx="334" cy="527" r="3"/><circle cx="360" cy="527" r="3"/><circle cx="386" cy="527" r="3"/><circle cx="412" cy="527" r="3"/><circle cx="438" cy="527" r="3"/><circle cx="464" cy="527" r="3"/><circle cx="490" cy="527" r="3"/><circle cx="516" cy="527" r="3"/><circle cx="542" cy="527" r="3"/><circle cx="568" cy="527" r="3"/><circle cx="594" cy="527" r="3"/><circle cx="620" cy="527" r="3"/><circle cx="646" cy="527" r="3"/><circle cx="672" cy="527" r="3"/><circle cx="698" cy="527" r="3"/>
+    </g>
+
+    <!-- 3.3V vertical drop holes -->
+    <g fill="#e74c3c" opacity="0.3">
+      <circle cx="100" cy="111" r="2.5"/>
+      <circle cx="230" cy="111" r="2.5"/>
+      <circle cx="230" cy="137" r="2.5"/>
+      <circle cx="230" cy="163" r="2.5"/>
+      <circle cx="230" cy="189" r="2.5"/>
+      <circle cx="230" cy="215" r="2.5"/>
+      <circle cx="230" cy="241" r="2.5"/>
+      <circle cx="230" cy="267" r="2.5"/>
+      <circle cx="230" cy="293" r="2.5"/>
+      <circle cx="230" cy="319" r="2.5"/>
+      <circle cx="256" cy="111" r="2.5"/>
+      <circle cx="360" cy="111" r="2.5"/>
+      <circle cx="360" cy="137" r="2.5"/>
+      <circle cx="360" cy="163" r="2.5"/>
+      <circle cx="360" cy="189" r="2.5"/>
+      <circle cx="360" cy="215" r="2.5"/>
+      <circle cx="360" cy="241" r="2.5"/>
+      <circle cx="360" cy="267" r="2.5"/>
+      <circle cx="360" cy="293" r="2.5"/>
+      <circle cx="360" cy="319" r="2.5"/>
+    </g>
+    <!-- GND vertical drop holes -->
+    <g fill="#3498db" opacity="0.3">
+      <circle cx="100" cy="293" r="2.5"/>
+      <circle cx="100" cy="319" r="2.5"/>
+      <circle cx="100" cy="345" r="2.5"/>
+      <circle cx="100" cy="371" r="2.5"/>
+      <circle cx="100" cy="397" r="2.5"/>
+      <circle cx="100" cy="423" r="2.5"/>
+      <circle cx="100" cy="449" r="2.5"/>
+      <circle cx="100" cy="475" r="2.5"/>
+      <circle cx="100" cy="501" r="2.5"/>
+      <circle cx="126" cy="293" r="2.5"/>
+      <circle cx="126" cy="319" r="2.5"/>
+      <circle cx="126" cy="345" r="2.5"/>
+      <circle cx="126" cy="371" r="2.5"/>
+      <circle cx="126" cy="397" r="2.5"/>
+      <circle cx="126" cy="423" r="2.5"/>
+      <circle cx="126" cy="449" r="2.5"/>
+      <circle cx="126" cy="475" r="2.5"/>
+      <circle cx="126" cy="501" r="2.5"/>
+      <circle cx="282" cy="371" r="2.5"/>
+      <circle cx="282" cy="397" r="2.5"/>
+      <circle cx="282" cy="423" r="2.5"/>
+      <circle cx="282" cy="449" r="2.5"/>
+      <circle cx="282" cy="475" r="2.5"/>
+      <circle cx="282" cy="501" r="2.5"/>
+      <circle cx="412" cy="371" r="2.5"/>
+      <circle cx="412" cy="397" r="2.5"/>
+      <circle cx="412" cy="423" r="2.5"/>
+      <circle cx="412" cy="449" r="2.5"/>
+      <circle cx="412" cy="475" r="2.5"/>
+      <circle cx="412" cy="501" r="2.5"/>
+      <circle cx="516" cy="371" r="2.5"/>
+      <circle cx="516" cy="397" r="2.5"/>
+      <circle cx="516" cy="423" r="2.5"/>
+      <circle cx="516" cy="449" r="2.5"/>
+      <circle cx="516" cy="475" r="2.5"/>
+      <circle cx="516" cy="501" r="2.5"/>
+      <circle cx="594" cy="371" r="2.5"/>
+      <circle cx="594" cy="397" r="2.5"/>
+      <circle cx="594" cy="423" r="2.5"/>
+      <circle cx="594" cy="449" r="2.5"/>
+      <circle cx="594" cy="475" r="2.5"/>
+      <circle cx="594" cy="501" r="2.5"/>
+    </g>
+    <!-- Signal vertical drop holes -->
+    <g fill="#27ae60" opacity="0.3">
+      <circle cx="256" cy="241" r="2.5"/>
+      <circle cx="256" cy="267" r="2.5"/>
+      <circle cx="256" cy="293" r="2.5"/>
+      <circle cx="256" cy="319" r="2.5"/>
+    </g>
+
+    <!-- *** COMPONENT OUTLINES *** -->
+    <rect x="89" y="128" width="48" height="148" rx="3" fill="none" stroke="#2E7D32" stroke-width="1.5"/>
+    <text x="113" y="289" text-anchor="middle" font-size="7" fill="#2E7D32" font-weight="bold">J1: Pi GPIO</text>
+    <g font-size="5.5" fill="#333" text-anchor="middle">
+      <text x="100" y="132">3.3V</text>
+      <text x="126" y="132">5V</text>
+      <text x="100" y="158">G4</text>
+      <text x="126" y="158">G17</text>
+      <text x="100" y="184">G5</text>
+      <text x="126" y="184">G27</text>
+      <text x="100" y="210">G22</text>
+      <text x="126" y="210">G23</text>
+      <text x="100" y="236">nc</text>
+      <text x="126" y="236">G24</text>
+      <text x="100" y="262">GND</text>
+      <text x="126" y="262">GND</text>
+    </g>
+    <g font-size="4" fill="#888" text-anchor="middle">
+      <text x="126" y="146">→11S 5V</text>
+      <text x="100" y="172">→R1/DS18B20</text>
+      <text x="126" y="172">→11U IN1</text>
+      <text x="100" y="198">→11L DHT22</text>
+      <text x="126" y="198">→11V IN2</text>
+      <text x="100" y="224">→11P Float</text>
+      <text x="126" y="224">→11W IN3</text>
+      <text x="126" y="250">→11X IN4</text>
+    </g>
+
+    <!-- R1: 4.7kΩ (vertical, 3G to 6G) -->
+    <rect x="250" y="130" width="12" height="92" rx="2" fill="#d7ccc8" stroke="#5d4037" stroke-width="1.2"/>
+    <line x1="251" y1="145" x2="261" y2="145" stroke="#FDD835" stroke-width="2"/>
+    <line x1="251" y1="153" x2="261" y2="153" stroke="#7B1FA2" stroke-width="2"/>
+    <line x1="251" y1="161" x2="261" y2="161" stroke="#e74c3c" stroke-width="2"/>
+    <line x1="251" y1="169" x2="261" y2="169" stroke="#FFB300" stroke-width="2"/>
+    <text x="256" y="125" text-anchor="middle" font-size="7" fill="#5d4037" font-weight="bold">R1</text>
+    <text x="268" y="178" font-size="5.5" fill="#5d4037">4.7kΩ</text>
+
+    <rect x="222" y="337" width="68" height="16" rx="2" fill="#fffde7" stroke="#333" stroke-width="1"/>
+    <text x="256" y="363" text-anchor="middle" font-size="6.5" fill="#333" font-weight="bold">J2: DS18B20</text>
+    <g font-size="5" fill="#555" text-anchor="middle">
+      <text x="230" y="346">VCC</text>
+      <text x="256" y="346">DATA</text>
+      <text x="282" y="346">GND</text>
+    </g>
+
+    <rect x="352" y="337" width="68" height="16" rx="2" fill="#fffde7" stroke="#333" stroke-width="1"/>
+    <text x="386" y="363" text-anchor="middle" font-size="6.5" fill="#333" font-weight="bold">J3: DHT22</text>
+    <g font-size="5" fill="#555" text-anchor="middle">
+      <text x="360" y="346">VCC</text>
+      <text x="386" y="346">DATA</text>
+      <text x="412" y="346">GND</text>
+    </g>
+
+    <rect x="482" y="337" width="42" height="16" rx="2" fill="#fffde7" stroke="#333" stroke-width="1"/>
+    <text x="503" y="363" text-anchor="middle" font-size="6.5" fill="#333" font-weight="bold">J4: Float</text>
+    <g font-size="5" fill="#555" text-anchor="middle">
+      <text x="490" y="346">SIG</text>
+      <text x="516" y="346">GND</text>
+    </g>
+
+    <rect x="560" y="337" width="146" height="16" rx="2" fill="#fffde7" stroke="#333" stroke-width="1"/>
+    <text x="633" y="363" text-anchor="middle" font-size="6.5" fill="#333" font-weight="bold">J5: 4chリレー</text>
+    <g font-size="5" fill="#555" text-anchor="middle">
+      <text x="568" y="346">5V</text>
+      <text x="594" y="346">GND</text>
+      <text x="620" y="346">IN1</text>
+      <text x="646" y="346">IN2</text>
+      <text x="672" y="346">IN3</text>
+      <text x="698" y="346">IN4</text>
+    </g>
+
+    <text x="230" y="77" text-anchor="middle" font-size="6" fill="#c0392b" font-weight="bold">3.3V バス (Row 1)</text>
+    <text x="386" y="541" text-anchor="middle" font-size="6" fill="#2980b9" font-weight="bold">GND バス (Row 18)</text>
+    <text x="542" y="215" text-anchor="middle" font-size="7" fill="#888" font-style="italic">部品面には配線なし</text>
+    <text x="542" y="241" text-anchor="middle" font-size="7" fill="#888" font-style="italic">全てはんだ面で配線</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!--  VIEW 2: はんだ面                                              -->
+  <!-- ============================================================ -->
+  <text x="440" y="568" text-anchor="middle" font-size="12" font-weight="bold" fill="#c0392b">▼ はんだ面（裏から見た図・左右反転） ― バス＋被覆導線＋ブリッジ</text>
+
+  <g id="solder-side">
+    <rect x="82" y="580" width="634" height="472" rx="4" fill="#fef9e7" fill-opacity="0.4" stroke="#7d6608" stroke-width="1.5"/>
+
+    <g font-size="7" fill="#999" text-anchor="middle">
+      <text x="100" y="590">X</text><text x="126" y="590">W</text><text x="152" y="590">V</text><text x="178" y="590">U</text><text x="204" y="590">T</text><text x="230" y="590">S</text><text x="256" y="590">R</text><text x="282" y="590">Q</text><text x="308" y="590">P</text><text x="334" y="590">O</text><text x="360" y="590">N</text><text x="386" y="590">M</text><text x="412" y="590">L</text><text x="438" y="590">K</text><text x="464" y="590">J</text><text x="490" y="590">I</text><text x="516" y="590">H</text><text x="542" y="590">G</text><text x="568" y="590">F</text><text x="594" y="590">E</text><text x="620" y="590">D</text><text x="646" y="590">C</text><text x="672" y="590">B</text><text x="698" y="590">A</text>
+    </g>
+    <g font-size="7" fill="#999">
+      <text x="713" y="600">1</text>
+      <text x="713" y="626">2</text>
+      <text x="713" y="652">3</text>
+      <text x="713" y="678">4</text>
+      <text x="713" y="704">5</text>
+      <text x="713" y="730">6</text>
+      <text x="713" y="756">7</text>
+      <text x="713" y="782">8</text>
+      <text x="713" y="808">9</text>
+      <text x="713" y="834">10</text>
+      <text x="713" y="860">11</text>
+      <text x="713" y="886">12</text>
+      <text x="713" y="912">13</text>
+      <text x="713" y="938">14</text>
+      <text x="713" y="964">15</text>
+      <text x="713" y="990">16</text>
+      <text x="713" y="1016">17</text>
+      <text x="713" y="1042">18</text>
+    </g>
+
+    <g fill="#ddd">
+      <use href="#hr" x="100" y="597"/>
+      <use href="#hr" x="100" y="623"/>
+      <use href="#hr" x="100" y="649"/>
+      <use href="#hr" x="100" y="675"/>
+      <use href="#hr" x="100" y="701"/>
+      <use href="#hr" x="100" y="727"/>
+      <use href="#hr" x="100" y="753"/>
+      <use href="#hr" x="100" y="779"/>
+      <use href="#hr" x="100" y="805"/>
+      <use href="#hr" x="100" y="831"/>
+      <use href="#hr" x="100" y="857"/>
+      <use href="#hr" x="100" y="883"/>
+      <use href="#hr" x="100" y="909"/>
+      <use href="#hr" x="100" y="935"/>
+      <use href="#hr" x="100" y="961"/>
+      <use href="#hr" x="100" y="987"/>
+      <use href="#hr" x="100" y="1013"/>
+      <use href="#hr" x="100" y="1039"/>
+    </g>
+
+    <!-- RED = 3.3V -->
+    <g stroke="#e74c3c" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.65">
+      <line x1="438" y1="597" x2="698" y2="597"/><!-- 3.3V bus -->
+      <line x1="698" y1="597" x2="698" y2="649"/><!-- to J1 3.3V -->
+      <line x1="568" y1="597" x2="568" y2="857"/><!-- to DS18B20 VCC -->
+      <line x1="542" y1="597" x2="542" y2="649"/><!-- to R1 top -->
+      <line x1="438" y1="597" x2="438" y2="857"/><!-- to DHT22 VCC -->
+    </g>
+
+    <!-- BLUE = GND -->
+    <g stroke="#3498db" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.65">
+      <line x1="100" y1="1039" x2="698" y2="1039"/><!-- GND bus -->
+      <line x1="698" y1="779" x2="698" y2="1039"/><!-- J1 GND -->
+      <line x1="672" y1="779" x2="672" y2="1039"/><!-- J1 GND -->
+      <line x1="516" y1="857" x2="516" y2="1039"/><!-- DS18B20 GND -->
+      <line x1="386" y1="857" x2="386" y2="1039"/><!-- DHT22 GND -->
+      <line x1="282" y1="857" x2="282" y2="1039"/><!-- Float GND -->
+      <line x1="204" y1="857" x2="204" y2="1039"/><!-- Relay GND -->
+    </g>
+
+    <!-- GREEN = Signal -->
+    <g stroke="#27ae60" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.7">
+      <line x1="542" y1="727" x2="542" y2="857"/><!-- 6G→11G: R1btm→DATA -->
+    </g>
+
+    <!-- PURPLE = 被覆導線 W1-W8 (insulated, can cross buses) -->
+    <g stroke="#9b59b6" stroke-width="1.8" fill="none" opacity="0.8">
+      <line x1="698" y1="675" x2="542" y2="753"/>
+      <line x1="698" y1="701" x2="412" y2="857"/>
+      <line x1="698" y1="727" x2="308" y2="857"/>
+      <line x1="672" y1="649" x2="230" y2="857" stroke="#e67e22"/>
+      <line x1="672" y1="675" x2="178" y2="857"/>
+      <line x1="672" y1="701" x2="152" y2="857"/>
+      <line x1="672" y1="727" x2="126" y2="857"/>
+      <line x1="672" y1="753" x2="100" y2="857"/>
+    </g>
+    <g font-size="5" fill="#7d3c98">
+      <text x="620" y="710">W1:G4→R1</text>
+      <text x="555" y="775">W2:G5→DHT</text>
+      <text x="503" y="788">W3:G22→Float</text>
+      <text x="451" y="749" fill="#e67e22">W4:5V→Relay</text>
+      <text x="425" y="762">W5:G17→IN1</text>
+      <text x="412" y="775">W6:G27→IN2</text>
+      <text x="399" y="788">W7:G23→IN3</text>
+      <text x="386" y="801">W8:G24→IN4</text>
+    </g>
+
+    <g font-size="5.5" font-weight="bold">
+      <text x="568" y="592" text-anchor="middle" fill="#c0392b">3.3V バス (1A〜1K)</text>
+      <text x="704" y="626" fill="#c0392b" font-size="5">1A→3A</text>
+      <text x="574" y="727" fill="#c0392b" font-size="5">1F→11F</text>
+      <text x="548" y="626" fill="#c0392b" font-size="5">1G→3G</text>
+      <text x="408" y="727" fill="#c0392b" font-size="5">1K→11K</text>
+      <text x="399" y="1051" text-anchor="middle" fill="#2980b9">GND バス (18A〜18X)</text>
+      <text x="698" y="935" text-anchor="middle" fill="#2980b9" font-size="4.5">8A↓</text>
+      <text x="672" y="935" text-anchor="middle" fill="#2980b9" font-size="4.5">8B↓</text>
+      <text x="516" y="935" text-anchor="middle" fill="#2980b9" font-size="4.5">11H↓</text>
+      <text x="386" y="935" text-anchor="middle" fill="#2980b9" font-size="4.5">11M↓</text>
+      <text x="282" y="935" text-anchor="middle" fill="#2980b9" font-size="4.5">11Q↓</text>
+      <text x="204" y="935" text-anchor="middle" fill="#2980b9" font-size="4.5">11T↓</text>
+      <text x="550" y="782" fill="#27ae60" font-size="5">6G→11G</text>
+    </g>
+
+    <g fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="3,2">
+      <rect x="661" y="640" width="48" height="148" rx="2"/>
+      <rect x="536" y="642" width="12" height="92" rx="2"/>
+      <rect x="508" y="849" width="68" height="16" rx="2"/>
+      <rect x="378" y="849" width="68" height="16" rx="2"/>
+      <rect x="274" y="849" width="42" height="16" rx="2"/>
+      <rect x="92" y="849" width="146" height="16" rx="2"/>
+    </g>
+    <g font-size="5.5" fill="#aaa" text-anchor="middle">
+      <text x="685" y="635">J1</text>
+      <text x="542" y="635">R1</text>
+      <text x="542" y="871">J2</text>
+      <text x="412" y="871">J3</text>
+      <text x="295" y="871">J4</text>
+      <text x="165" y="871">J5</text>
+    </g>
+  </g>
+
+  <g id="legend" transform="translate(0,1069)">
+    <rect x="30" y="0" width="820" height="65" rx="4" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+    <text x="50" y="16" font-size="10" font-weight="bold" fill="#333">凡例</text>
+    <g font-size="8" fill="#333">
+      <line x1="50" y1="32" x2="80" y2="32" stroke="#e74c3c" stroke-width="4" stroke-linecap="round"/>
+      <text x="85" y="35">3.3V（すずめっき線）</text>
+      <line x1="240" y1="32" x2="270" y2="32" stroke="#3498db" stroke-width="4" stroke-linecap="round"/>
+      <text x="275" y="35">GND（すずめっき線）</text>
+      <line x1="420" y1="32" x2="450" y2="32" stroke="#27ae60" stroke-width="3.5" stroke-linecap="round"/>
+      <text x="455" y="35">信号（はんだブリッジ）</text>
+      <line x1="610" y1="32" x2="650" y2="32" stroke="#9b59b6" stroke-width="1.8"/>
+      <text x="655" y="35">被覆導線（はんだ面）</text>
+    </g>
+    <g font-size="8" fill="#333">
+      <circle cx="60" cy="52" r="3.5" fill="#e74c3c" opacity="0.7"/><text x="70" y="55">3.3V穴</text>
+      <circle cx="140" cy="52" r="3.5" fill="#3498db" opacity="0.7"/><text x="150" y="55">GND穴</text>
+      <circle cx="210" cy="52" r="3.5" fill="#e67e22" opacity="0.7"/><text x="220" y="55">5V穴</text>
+      <circle cx="270" cy="52" r="3.5" fill="#27ae60" opacity="0.7"/><text x="280" y="55">信号穴</text>
+      <rect x="340" y="48" width="16" height="8" rx="1" fill="#d7ccc8" stroke="#5d4037" stroke-width="0.8"/><text x="360" y="55">抵抗</text>
+      <rect x="400" y="48" width="16" height="8" rx="1" fill="#fffde7" stroke="#333" stroke-width="0.8"/><text x="420" y="55">ピンヘッダ（オス）</text>
+    </g>
+  </g>
+
+  <g id="conn-table" transform="translate(0,1149)">
+    <text x="50" y="16" font-size="11" font-weight="bold" fill="#333">接続一覧</text>
+    <rect x="30" y="24" width="820" height="18" fill="#e8e8e8"/>
+    <text x="40" y="37" font-size="8" font-weight="bold" fill="#333">はんだ面の配線 ― すずめっき線 / はんだブリッジ（バス・電源・信号）</text>
+    <g font-size="7.5" fill="#333">
+      <text x="40" y="54" fill="#e74c3c" font-weight="bold">3.3V バス:</text>
+      <text x="110" y="54">1A-1B-...-1K （Row 1 横方向・すずめっき線推奨）</text>
+      <text x="40" y="68" fill="#e74c3c" font-weight="bold">3.3V 縦:</text>
+      <text x="110" y="68">1A→3A (J1)　|　1F→11F (DS18B20 VCC)　|　1G→3G (R1上端)　|　1K→11K (DHT22 VCC)</text>
+      <text x="40" y="82" fill="#3498db" font-weight="bold">GND バス:</text>
+      <text x="110" y="82">18A-18B-...-18X （Row 18 横方向・すずめっき線推奨）</text>
+      <text x="40" y="96" fill="#3498db" font-weight="bold">GND 縦:</text>
+      <text x="110" y="96">8A→18A, 8B→18B (J1)　|　11H→18H (DS18B20)　|　11M→18M (DHT22)　|　11Q→18Q (Float)　|　11T→18T (Relay)</text>
+      <text x="40" y="110" fill="#27ae60" font-weight="bold">信号:</text>
+      <text x="110" y="110">6G→7G→...→11G （R1下端→DS18B20 DATA はんだブリッジ）</text>
+    </g>
+
+    <rect x="30" y="122" width="820" height="18" fill="#e8e8e8"/>
+    <text x="40" y="135" font-size="8" font-weight="bold" fill="#333">はんだ面の配線 ― 被覆導線（GPIO→センサー信号線）</text>
+    <g font-size="7.5" fill="#333">
+      <text x="40" y="152" fill="#7d3c98" font-weight="bold">W1:</text>
+      <text x="60" y="152">4A (GPIO4) → 7G（R1下端と同じ列、裏面で11G DS18B20 DATAまでブリッジ済み）</text>
+      <text x="40" y="166" fill="#7d3c98" font-weight="bold">W2:</text>
+      <text x="60" y="166">5A (GPIO5) → 11L（DHT22 DATA に直結）</text>
+      <text x="40" y="180" fill="#7d3c98" font-weight="bold">W3:</text>
+      <text x="60" y="180">6A (GPIO22) → 11P（フロートスイッチ SIG）</text>
+      <text x="440" y="152" fill="#c0392b" font-weight="bold">W4:</text>
+      <text x="460" y="152">3B (5V) → 11S（リレー VCC）</text>
+      <text x="440" y="166" fill="#7d3c98" font-weight="bold">W5:</text>
+      <text x="460" y="166">4B (GPIO17) → 11U（リレー IN1 循環ポンプ）</text>
+      <text x="440" y="180" fill="#7d3c98" font-weight="bold">W6:</text>
+      <text x="460" y="180">5B (GPIO27) → 11V（リレー IN2 予備）</text>
+      <text x="440" y="194" fill="#7d3c98" font-weight="bold">W7:</text>
+      <text x="460" y="194">6B (GPIO23) → 11W（リレー IN3 UV予約）</text>
+      <text x="440" y="208" fill="#7d3c98" font-weight="bold">W8:</text>
+      <text x="460" y="208">7B (GPIO24) → 11X（リレー IN4 予備）</text>
+    </g>
+  </g>
+
+  <g id="notes" transform="translate(0,1379)">
+    <rect x="30" y="0" width="820" height="94" rx="4" fill="#fff3e0" stroke="#ff9800" stroke-width="1"/>
+    <text x="50" y="16" font-size="9" font-weight="bold" fill="#e65100">作業手順</text>
+    <g font-size="8" fill="#333">
+      <text x="50" y="30">1. 部品面に J1〜J5 のオスピンヘッダと R1 を差し込む</text>
+      <text x="50" y="42">2. 基板を裏返し（左右反転！）、各ピンヘッダのリード線と R1 をはんだ付け</text>
+      <text x="50" y="54">3. はんだ面で 3.3V バス (Row1) と GND バス (Row18) にすずめっき線を置き、はんだ付け</text>
+      <text x="50" y="66">4. 縦方向のドロップ（VCC/GND→各センサー）もすずめっき線 or はんだブリッジで接続</text>
+      <text x="50" y="78">5. はんだ面で W1〜W8 の被覆導線を配線（ピンヘッダのリードに直接はんだ付け）</text>
+      <text x="50" y="90">6. 部品面のピンヘッダにメス DuPont コネクタで Pi GPIO とセンサーを差し込む → 完成</text>
+    </g>
+  </g>
+
+  <g id="safety" transform="translate(0,1488)">
+    <rect x="30" y="0" width="820" height="38" rx="4" fill="#ffebee" stroke="#c62828" stroke-width="1"/>
+    <text x="50" y="15" font-size="8" font-weight="bold" fill="#c62828">注意: リレーモジュールの12V出力側は基板に載せない。リレー出力端子(COM/NO)と12V電源・ポンプの接続はネジ端子で行うこと。</text>
+    <text x="50" y="30" font-size="8" fill="#c62828">R1(4.7kΩ)=DS18B20プルアップ。DHT22は3ピンモジュール内蔵プルアップ使用。フロートスイッチはGPIO内部プルアップ使用。</text>
+  </g>
+</svg>

@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "WebFetch(domain:www.amazon.co.jp)"
+      "WebFetch(domain:www.amazon.co.jp)",
+      "Bash(python3:*)",
+      "Bash(rsvg-convert:*)"
     ]
   }
 }
