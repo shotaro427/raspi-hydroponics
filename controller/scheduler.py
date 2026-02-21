@@ -71,10 +71,18 @@ class PumpScheduler:
 
         logger.info("スケジューラ開始")
 
+    def _remove_toggle_job(self) -> None:
+        """トグルジョブを安全に削除する（実行済みでも例外を出さない）"""
+        if self._toggle_job:
+            try:
+                self._toggle_job.remove()
+            except Exception:
+                pass
+            self._toggle_job = None
+
     def stop(self) -> None:
         """スケジューラを停止する（グレースフルシャットダウン時）"""
-        if self._toggle_job:
-            self._toggle_job.remove()
+        self._remove_toggle_job()
         self.scheduler.shutdown()
         logger.info("スケジューラ停止")
 
@@ -87,9 +95,7 @@ class PumpScheduler:
 
         self._paused = True
         self.pump.off()
-
-        if self._toggle_job:
-            self._toggle_job.pause()
+        self._remove_toggle_job()
 
         logger.warning("スケジューラ一時停止（水位低下）")
 
@@ -102,12 +108,17 @@ class PumpScheduler:
 
         self._paused = False
 
-        if self._toggle_job:
-            self._toggle_job.resume()
-
-        # 日中モードの場合はポンプを再開
+        # 日中モードの場合はポンプONで再開し、トグルを再スケジュール
         if self._is_day_mode:
             self.pump.on()
+            on_minutes = self.schedule_config["on_minutes"]
+            next_run = datetime.now() + timedelta(minutes=on_minutes)
+            self._toggle_job = self.scheduler.add_job(
+                self._toggle_pump,
+                'date',
+                run_date=next_run,
+                id='pump_toggle'
+            )
 
         logger.info("スケジューラ再開")
 
@@ -128,9 +139,13 @@ class PumpScheduler:
             self.pump.on()
             next_run = datetime.now() + timedelta(minutes=on_minutes)
 
-        # 次回のトグルをスケジュール
-        if self._toggle_job:
-            self._toggle_job.modify(next_run_time=next_run)
+        # 次回のトグルをスケジュール（dateトリガーは実行後に削除されるため新規登録）
+        self._toggle_job = self.scheduler.add_job(
+            self._toggle_pump,
+            'date',
+            run_date=next_run,
+            id='pump_toggle'
+        )
 
     def _enter_day_mode(self) -> None:
         """日中モードに入る（day_startの時刻に呼ばれる）
@@ -139,8 +154,7 @@ class PumpScheduler:
         self._is_day_mode = True
 
         # 既存のトグルジョブがあれば削除
-        if self._toggle_job:
-            self._toggle_job.remove()
+        self._remove_toggle_job()
 
         on_minutes = self.schedule_config["on_minutes"]
         off_minutes = self.schedule_config["off_minutes"]
@@ -167,9 +181,7 @@ class PumpScheduler:
         self._is_day_mode = False
 
         # トグルジョブを削除
-        if self._toggle_job:
-            self._toggle_job.remove()
-            self._toggle_job = None
+        self._remove_toggle_job()
 
         # ポンプOFF
         self.pump.off()

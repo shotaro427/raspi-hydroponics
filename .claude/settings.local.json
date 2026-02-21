@@ -4,7 +4,8 @@
       "WebSearch",
       "WebFetch(domain:www.amazon.co.jp)",
       "Bash(python3:*)",
-      "Bash(rsvg-convert:*)"
+      "Bash(rsvg-convert:*)",
+      "Bash(find /Users/shotaro/projects/raspi-hydroponics -type f \\\\\\( -name \"*.json\" -o -name \"*dashboard*\" -o -name \"*provisioning*\" \\\\\\) 2>/dev/null | head -20)"
     ]
   }
 }
