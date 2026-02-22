@@ -17,11 +17,15 @@ class TemperatureSensor:
     def _find_device(self):
         devices = glob.glob(DEVICE_BASE_DIR + DEVICE_PATTERN)
         if not devices:
-            raise FileNotFoundError("DS18B20が見つかりません")
+            # raise FileNotFoundError("DS18B20が見つかりません")
+            logger.error(f"DS18B20が見つかりません: {devices}")
+            return None
         return devices[0]
 
     def read(self):
         """水温を°Cで返す"""
+        if self.device_path is None:
+            return 0
         temp_file = self.device_path + "/temperature"
         with open(temp_file, "r") as f:
             raw = f.read().strip()

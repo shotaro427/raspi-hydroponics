@@ -148,11 +148,9 @@ def main():
 
             # ポンプ状態をMQTT送信（60秒間隔）
             if now - last_read["pump_status"] >= 60:
-                mqtt_client.publish("actuators/pump/status", {
-                    "state": "on" if pump.status() else "off",
-                    "runtime_hours": round(pump.runtime_hours(), 2),
-                    "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S")
-                })
+                mqtt_client.publish("actuators/pump/state", 1 if pump.status() else 0)
+                mqtt_client.publish("actuators/pump/runtime_hours", round(pump.runtime_hours(), 2))
+                logger.info(f"ポンプ状態: {pump.status()} 稼働時間: {pump.runtime_hours() * 60:.2f} 分")
                 last_read["pump_status"] = now
 
             time.sleep(1)

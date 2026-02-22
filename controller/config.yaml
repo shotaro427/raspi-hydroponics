@@ -19,7 +19,7 @@ actuators:
     gpio_pin: 17         # リレー IN1
     active_low: true     # LOW信号でリレーON（一般的な4chリレー）
     schedule:
-      day_start: "06:00"
+      day_start: "08:00"
       day_end: "22:00"
       on_minutes: 15     # 日中: 15分ON
       off_minutes: 15    # 日中: 15分OFF
