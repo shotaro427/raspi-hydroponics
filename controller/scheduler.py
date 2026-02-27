@@ -122,6 +122,25 @@ class PumpScheduler:
 
         logger.info("スケジューラ再開")
 
+    def schedule_status(self) -> dict:
+        """スケジューラの現在の状態を返す（MQTT送信用）"""
+        remaining_sec = -1
+        if self._toggle_job is not None:
+            try:
+                next_run = self._toggle_job.next_run_time
+                if next_run is not None:
+                    now = datetime.now(tz=next_run.tzinfo)
+                    delta = (next_run - now).total_seconds()
+                    remaining_sec = max(0, int(delta))
+            except Exception:
+                remaining_sec = -1
+
+        return {
+            "remaining_sec": remaining_sec,
+            "day_mode": 1 if self._is_day_mode else 0,
+            "paused": 1 if self._paused else 0,
+        }
+
     def _toggle_pump(self) -> None:
         """循環ポンプのON/OFFをトグルする"""
         if self._paused:

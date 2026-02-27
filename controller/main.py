@@ -99,7 +99,8 @@ def main():
         "temperature": 0,
         "water_level": 0,
         "humidity": 0,
-        "pump_status": 0
+        "pump_status": 0,
+        "schedule_status": 0,
     }
 
     try:
@@ -152,6 +153,14 @@ def main():
                 mqtt_client.publish("actuators/pump/runtime_hours", round(pump.runtime_hours(), 2))
                 logger.info(f"ポンプ状態: {pump.status()} 稼働時間: {pump.runtime_hours() * 60:.2f} 分")
                 last_read["pump_status"] = now
+
+            # スケジューラ状態をMQTT送信（10秒間隔）
+            if now - last_read["schedule_status"] >= 10:
+                status = scheduler.schedule_status()
+                mqtt_client.publish("actuators/pump/remaining_sec", status["remaining_sec"])
+                mqtt_client.publish("actuators/pump/day_mode", status["day_mode"])
+                mqtt_client.publish("actuators/pump/paused", status["paused"])
+                last_read["schedule_status"] = now
 
             time.sleep(1)
 
